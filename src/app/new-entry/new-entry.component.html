@@ -1,0 +1,44 @@
+<form #eventForm="ngForm" (ngSubmit)="getWeather(eventForm)">
+  <input type="text" name="zip" ngModel />
+  <button>Submit</button>
+</form>
+
+<p>{{ weatherData }}</p>
+<!-- <i class="owi owi-09d"></i> -->
+<!-- <img
+  src="{{ 'http://openweathermap.org/img/wn/' + 'weatherData' + '@2x.png' }}"
+  alt=""
+/> -->
+
+<form #trafficForm="ngForm" (ngSubmit)="getTraffic(trafficForm)">
+  <input
+    type="number"
+    name="startNumber"
+    placeholder="Starting Street Number"
+    ngModel
+  />
+  <input
+    type="text"
+    name="startStreet"
+    placeholder="Starting Street Name"
+    ngModel
+  />
+  <input type="string" name="startCity" placeholder="Starting City" ngModel />
+  <input type="string" name="startState" placeholder="Starting State" ngModel />
+  <br />
+  <input
+    type="number"
+    name="endNumber"
+    placeholder="ending Street Number"
+    ngModel
+  />
+  <input
+    type="text"
+    name="endStreet"
+    placeholder="ending Street Name"
+    ngModel
+  />
+  <input type="string" name="endCity" placeholder="ending City" ngModel />
+  <input type="string" name="endState" placeholder="ending State" ngModel />
+  <button>Submit</button>
+</form>
