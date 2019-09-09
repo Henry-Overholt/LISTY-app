@@ -1,43 +1,57 @@
-import { Component, OnInit } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  AfterViewInit,
+  Input,
+  Output,
+  EventEmitter,
+  ViewChild
+} from "@angular/core";
 import { WeatherService } from "./../services/weather.service";
+import { TodoService } from "./../services/todo.service";
+import { EventService } from "./../services/event.service";
 import { NgForm } from "@angular/forms";
+// import {} from "@types/googlemaps";
 
 @Component({
   selector: "app-new-entry",
   templateUrl: "./new-entry.component.html",
   styleUrls: ["./new-entry.component.css"]
 })
-export class NewEntryComponent implements OnInit {
+export class NewEntryComponent implements OnInit, AfterViewInit {
+  @Input() adressType: string;
+  @Output() setAddress: EventEmitter<any> = new EventEmitter();
+  // @ViewChild("addresstext") addresstext: any;
   weatherData: any;
   trafficData: any;
   trafficString: any;
   showNewEntry: boolean = false;
-  showTodo: boolean = false;
-  showEvent: boolean = false;
-  constructor(private weatherService: WeatherService) {}
+  showForm: boolean = false;
+
+  autocompleteInput: string;
+  constructor(
+    private weatherService: WeatherService,
+    private todoService: TodoService,
+    private eventService: EventService
+  ) {}
 
   ngOnInit() {}
+  ngAfterViewInit() {}
 
   handleNewEntry(): void {
     this.showNewEntry = !this.showNewEntry;
   }
-  handleTypeForm(form: NgForm): void {
-    this.showNewEntry = !this.showNewEntry;
-
-    if (form.value.entryType === "To-do") {
-      this.showTodo = !this.showTodo;
-    } else if (form.value.entryType === "Event") {
-      this.showEvent = !this.showEvent;
-    }
-  }
   postTodo(todoForm: NgForm): void {
-    console.log(todoForm.value);
-    this.showTodo = false;
+    this.todoService.postTodo(todoForm.value);
+    this.showNewEntry = !this.showNewEntry;
   }
   handleEventForm() {
     console.log("form was requested");
   }
-
+  handletoggle() {
+    this.showForm = !this.showForm;
+    console.log("toggle");
+  }
   getWeather(eventForm: NgForm): void {
     console.log(eventForm.value.date, eventForm.value.time);
     this.weatherService

@@ -5,12 +5,14 @@ import { FormsModule } from "@angular/forms";
 import { WeatherService } from "./services/weather.service";
 
 import { AppComponent } from "./app.component";
-import { NewEntryComponent } from './new-entry/new-entry.component';
+import { NewEntryComponent } from "./new-entry/new-entry.component";
+import { TodoService } from "./services/todo.service";
+import { EventService } from "./services/event.service";
 
 @NgModule({
   declarations: [AppComponent, NewEntryComponent],
   imports: [BrowserModule, HttpClientModule, FormsModule],
-  providers: [WeatherService],
+  providers: [WeatherService, TodoService, EventService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
