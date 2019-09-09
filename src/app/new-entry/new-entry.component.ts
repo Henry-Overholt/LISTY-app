@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { WeatherService } from "./../services/weather.service";
 import { NgForm } from "@angular/forms";
+import { TodoService } from "../services/todo.service";
 
 @Component({
   selector: "app-new-entry",
@@ -14,7 +15,12 @@ export class NewEntryComponent implements OnInit {
   showNewEntry: boolean = false;
   showTodo: boolean = false;
   showEvent: boolean = false;
-  constructor(private weatherService: WeatherService) {}
+  toDoList: any[];
+
+  constructor(
+    private weatherService: WeatherService,
+    private todoService: TodoService
+  ) {}
 
   ngOnInit() {}
 
@@ -30,10 +36,14 @@ export class NewEntryComponent implements OnInit {
       this.showEvent = !this.showEvent;
     }
   }
-  postTodo(todoForm: NgForm): void {
-    console.log(todoForm.value);
-    this.showTodo = false;
+
+  postTodo(form: NgForm): void {
+    this.todoService.postToDo(form.value).subscribe(response => {
+      this.toDoList = response;
+      form.reset();
+    });
   }
+
   handleEventForm() {
     console.log("form was requested");
   }
