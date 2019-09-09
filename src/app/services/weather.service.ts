@@ -18,7 +18,7 @@ export class WeatherService {
   }
   getTrafficData(trafficData: any): Observable<any> {
     return this.http.get(
-      `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=${trafficData.startAdd}+${trafficData.startCity}+${trafficData.startState}&destinations=${trafficData.eventAdd}+${trafficData.endCity}+${trafficData.endState}&key=AIzaSyCSreLuncbla65v6Bn2bOIMi6ajS4-18Os`
+      `http://localhost:5252/map?origins=${trafficData.startAdd}+${trafficData.startCity}+${trafficData.startState}&destinations=${trafficData.eventAdd}+${trafficData.endCity}+${trafficData.endState}`
     );
   }
 }
