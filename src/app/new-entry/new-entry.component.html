@@ -1,44 +1,91 @@
-<form #eventForm="ngForm" (ngSubmit)="getWeather(eventForm)">
-  <input type="text" name="zip" ngModel />
+<button (click)="handleNewEntry()">+</button>
+<form
+  *ngIf="showNewEntry"
+  #typeForm="ngForm"
+  (ngSubmit)="handleTypeForm(typeForm)"
+>
+  <label for="entryType">Is this new To-do or a new Event?</label>
+  <select name="entryType" id="entryType" ngModel>
+    <option value="To-do">To-do</option>
+    <option value="Event">Event</option>
+  </select>
   <button>Submit</button>
 </form>
 
-<p>{{ weatherData }}</p>
-<!-- <i class="owi owi-09d"></i> -->
-<!-- <img
-  src="{{ 'http://openweathermap.org/img/wn/' + 'weatherData' + '@2x.png' }}"
-  alt=""
-/> -->
+<form #todoForm="ngForm" (ngSubmit)="postTodo(todoForm)" *ngIf="showTodo">
+  <label for="todoName">What is your new To-do?</label>
+  <input type="todoName" name="todoName" ngModel />
+  <label for="date">When?</label>
+  <input type="date" name="todoDate" ngModel />
+  <label for="priority">How important is this To-do?</label>
+  <select name="priority" id="priority" name="priority" ngModel>
+    <option value="low">Low</option>
+    <option value="medium">Medium</option>
+    <option value="high">High</option>
+  </select>
+  <label for="notes">Addtional To-do Notes: </label>
+  <textarea name="notes" id="notes" cols="50" rows="5" ngModel></textarea>
+  <button>ADD TO-DO</button>
+</form>
 
-<form #trafficForm="ngForm" (ngSubmit)="getTraffic(trafficForm)">
+<form
+  #eventForm="ngForm"
+  *ngIf="showEvent"
+  (ngSubmit)="handleEventForm(); getWeather(eventForm); getTraffic(eventForm)"
+>
+  <label for="eventName">Name: </label>
+  <input type="text" name="eventName" ngModel />
+  <label for="time">Time of Event</label>
+  <input type="time" name="time" ngModel />
+  <label for="date">Date of Event</label>
+  <input type="date" name="date" ngModel />
+  <p>Where are you leaving from?</p>
+  <label for="startAdd">Starting Address: </label>
+  <input type="text" name="startAdd" placeholder="Starting Address" ngModel />
+  <!-- <label for="startNumber">Street Number: </label>
   <input
     type="number"
     name="startNumber"
     placeholder="Starting Street Number"
     ngModel
   />
+  <label for="startStreet">Starting Street Name: </label>
   <input
     type="text"
     name="startStreet"
     placeholder="Starting Street Name"
     ngModel
-  />
-  <input type="string" name="startCity" placeholder="Starting City" ngModel />
-  <input type="string" name="startState" placeholder="Starting State" ngModel />
-  <br />
+  /> -->
+  <label for="startCity">Starting City: </label>
+  <input type="text" name="startCity" placeholder="Starting City" ngModel />
+  <label for="startState">Starting State: </label>
+  <input type="text" name="startState" placeholder="Starting State" ngModel />
+  <label for="startZip">Starting Zipcode: </label>
+  <input type="text" name="startZip" placeholder="Starting Zipcode" ngModel />
+  <p>Where is your event?</p>
+  <label for="eventAdd">Event Address: </label>
+  <input type="text" name="eventAdd" placeholder="Event Address" ngModel />
+  <!-- <label for="endNumber">Event Street Number: </label>
   <input
     type="number"
     name="endNumber"
     placeholder="ending Street Number"
     ngModel
   />
+  <label for="endStreet">Event Street Name: </label>
   <input
     type="text"
     name="endStreet"
     placeholder="ending Street Name"
     ngModel
-  />
-  <input type="string" name="endCity" placeholder="ending City" ngModel />
-  <input type="string" name="endState" placeholder="ending State" ngModel />
-  <button>Submit</button>
+  /> -->
+  <label for="endCity">Event City: </label>
+  <input type="text" name="endCity" placeholder="ending City" ngModel />
+  <label for="endState">Event State: </label>
+  <input type="text" name="endState" placeholder="ending State" ngModel />
+  <label for="eventZip">Event Zipcode: </label>
+  <input type="text" name="eventZip" placeholder="Event Zipcode" ngModel />
+  <label for="notes">Additional Event Notes:</label>
+  <textarea name="notes" id="" cols="50" rows="5" ngModel></textarea>
+  <button>ADD EVENT</button>
 </form>
