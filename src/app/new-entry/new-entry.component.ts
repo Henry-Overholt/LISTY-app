@@ -10,8 +10,6 @@ import { WeatherService } from "./../services/weather.service";
 import { TodoService } from "./../services/todo.service";
 import { EventService } from "./../services/event.service";
 import { NgForm } from "@angular/forms";
-import { TodoService } from "../services/todo.service";
-import { EventService } from "../services/event.service";
 
 @Component({
   selector: "app-new-entry",
@@ -19,16 +17,14 @@ import { EventService } from "../services/event.service";
   styleUrls: ["./new-entry.component.css"]
 })
 export class NewEntryComponent implements OnInit, AfterViewInit {
-  @Input() adressType: string;
+  @Input() addressType: string;
   @Output() setAddress: EventEmitter<any> = new EventEmitter();
   // @ViewChild("addresstext") addresstext: any;
   weatherData: any;
   trafficData: any;
   trafficString: any;
   showNewEntry: boolean = false;
-
   showForm: boolean = false;
-
   toDoList: any[];
   eventList: any[];
 
@@ -56,8 +52,6 @@ export class NewEntryComponent implements OnInit, AfterViewInit {
     });
   }
 
-
-
   postEvent(form: NgForm): void {
     this.eventService.postEvent(form.value).subscribe(response => {
       this.eventList = response;
@@ -80,7 +74,7 @@ export class NewEntryComponent implements OnInit, AfterViewInit {
   getWeather(eventForm: NgForm): void {
     // console.log(eventForm.value.date, eventForm.value.time);
     this.weatherService
-      .getWeatherData(eventForm.value.eventZip)
+      .getWeatherData(eventForm.value.event_zip)
       .subscribe(response => {
         this.weatherData = response;
         console.log(this.weatherData);
