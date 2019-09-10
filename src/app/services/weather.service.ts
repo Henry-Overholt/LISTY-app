@@ -10,15 +10,14 @@ export class WeatherService {
   location: string;
   traffic: any;
   constructor(private http: HttpClient) {}
-  getWeatherData(zip: string): Observable<any> {
-
-    return this.http.get(`http://localhost:5252/weather?zip=${zip}`);
+  getWeatherData(event_zip: string): Observable<any> {
+    return this.http.get(`http://localhost:5252/weather?zip=${event_zip}`);
 
     //api.openweathermap.org/data/2.5/forecast/hourly?zip=94040,us
   }
   getTrafficData(trafficData: any): Observable<any> {
     return this.http.get(
-      `http://localhost:5252/map?origins=${trafficData.startAdd}+${trafficData.startCity}+${trafficData.startState}&destinations=${trafficData.eventAdd}+${trafficData.endCity}+${trafficData.endState}`
+      `http://localhost:5252/map?origins=${trafficData.starting_address}+${trafficData.starting_city}+${trafficData.starting_state}&destinations=${trafficData.event_address}+${trafficData.event_city}+${trafficData.event_state}`
     );
   }
 }

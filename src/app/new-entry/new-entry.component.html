@@ -41,13 +41,16 @@
   <form
     #eventForm="ngForm"
     *ngIf="showForm"
-    (ngSubmit)="handleEventForm(); getWeather(eventForm); getTraffic(eventForm)"
+    (ngSubmit)="
+      postEvent(eventForm); getWeather(eventForm); getTraffic(eventForm)
+    "
   >
     <label for="eventName">Event Name: </label>
     <input type="text" name="event_name" ngModel />
-    <label for="event start time">When does the Event Start?</label>
+
+    <label for="time">Time of Event</label>
     <input type="time" name="event_start_time" ngModel />
-    <label for="event end time">When does the Event End?</label>
+    <label for="time">End Time of Event</label>
     <input type="time" name="event_end_time" ngModel />
     <label for="date">Date of Event</label>
     <input type="date" name="event_date" ngModel />
@@ -55,23 +58,34 @@
     <label for="startAdd">Starting Address: </label>
     <input
       type="text"
-      name="start_address"
+
+      name="starting_address"
+
       placeholder="Starting Address"
       ngModel
     />
     <label for="startCity">Starting City: </label>
-    <input type="text" name="start_city" placeholder="Starting City" ngModel />
+
+    <input
+      type="text"
+      name="starting_city"
+      placeholder="Starting City"
+      ngModel
+    />
     <label for="startState">Starting State: </label>
     <input
       type="text"
-      name="start_state"
+      name="starting_state"
+
       placeholder="Starting State"
       ngModel
     />
     <label for="startZip">Starting Zipcode: </label>
     <input
-      type="text"
-      name="start_zip"
+
+      type="number"
+      name="starting_zip"
+
       placeholder="Starting Zipcode"
       ngModel
     />
@@ -84,13 +98,25 @@
       ngModel
     />
     <label for="endCity">Event City: </label>
-    <input type="text" name="end_city" placeholder="ending City" ngModel />
+
+    <input type="text" name="event_city" placeholder="ending City" ngModel />
     <label for="endState">Event State: </label>
-    <input type="text" name="end_state" placeholder="ending State" ngModel />
+    <input type="text" name="event_state" placeholder="ending State" ngModel />
     <label for="eventZip">Event Zipcode: </label>
-    <input type="text" name="event_zip" placeholder="Event Zipcode" ngModel />
+    <input type="number" name="event_zip" placeholder="Event Zipcode" ngModel />
     <label for="notes">Additional Event Notes:</label>
-    <textarea name="notes" id="" cols="50" rows="5" ngModel></textarea>
+    <textarea name="event_notes" id="" cols="50" rows="5" ngModel></textarea>
     <button>ADD EVENT</button>
   </form>
 </div>
+
+<!-- adding in icon -->
+
+<p>{{currentTemp}}</p>
+<p>{{returnDescription}}</p>
+
+<i class ="owi owi-09d"></i>
+
+<img src="http://openweathemap.org/img/wn/{{weatherData}}@2x.png" alt=""/>
+
+
