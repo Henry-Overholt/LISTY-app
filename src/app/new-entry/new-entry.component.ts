@@ -59,7 +59,7 @@ export class NewEntryComponent implements OnInit {
   }
 
   getWeather(eventForm: NgForm): void {
-    console.log(eventForm.value.date, eventForm.value.time);
+    // console.log(eventForm.value.date, eventForm.value.time);
     this.weatherService
       .getWeatherData(eventForm.value.eventZip)
       .subscribe(response => {
@@ -68,7 +68,7 @@ export class NewEntryComponent implements OnInit {
       });
   }
   getTraffic(eventForm: NgForm): void {
-    console.log(eventForm.value.time, eventForm.value.date);
+    // console.log(eventForm.value.time, eventForm.value.date);
     // this.trafficString = trafficForm.value;
     // this.trafficString.replace(/\s/g, "+");
     this.weatherService.getTrafficData(eventForm.value).subscribe(response => {
