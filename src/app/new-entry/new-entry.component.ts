@@ -10,6 +10,8 @@ import { WeatherService } from "./../services/weather.service";
 import { TodoService } from "./../services/todo.service";
 import { EventService } from "./../services/event.service";
 import { NgForm } from "@angular/forms";
+import { TodoService } from "../services/todo.service";
+import { EventService } from "../services/event.service";
 
 @Component({
   selector: "app-new-entry",
@@ -24,7 +26,9 @@ export class NewEntryComponent implements OnInit, AfterViewInit {
   trafficData: any;
   trafficString: any;
   showNewEntry: boolean = false;
+
   showForm: boolean = false;
+
   toDoList: any[];
   eventList: any[];
 
@@ -51,6 +55,8 @@ export class NewEntryComponent implements OnInit, AfterViewInit {
       form.reset();
     });
   }
+
+
 
   postEvent(form: NgForm): void {
     this.eventService.postEvent(form.value).subscribe(response => {

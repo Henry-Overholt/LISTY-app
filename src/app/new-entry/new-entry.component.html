@@ -16,13 +16,14 @@
     </label>
   </div>
 
+
   <form #todoForm="ngForm" (ngSubmit)="postTodo(todoForm)" *ngIf="!showForm">
     <label for="todoName">What is your new To-do?</label>
     <input type="text" name="to_do_item" ngModel />
     <label for="date">When?</label>
     <input type="date" name="to_do_date" ngModel />
     <label for="priority">How important is this To-do?</label>
-    <select name="to_do_priority" id="priority" name="to_do_priority" ngModel>
+    <select name="to_do_priority" id="priority" ngModel>
       <option value="low">Low</option>
       <option value="medium">Medium</option>
       <option value="high">High</option>
