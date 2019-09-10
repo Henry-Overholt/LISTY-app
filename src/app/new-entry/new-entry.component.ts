@@ -24,7 +24,8 @@ export class NewEntryComponent implements OnInit, AfterViewInit {
   trafficData: any;
   trafficString: any;
   showNewEntry: boolean = false;
-
+returnDescription:any;
+currentTemp:any;
   showForm: boolean = false;
 
   toDoList: any[];
@@ -74,7 +75,11 @@ export class NewEntryComponent implements OnInit, AfterViewInit {
     this.weatherService
       .getWeatherData(eventForm.value.event_zip)
       .subscribe(response => {
-        this.weatherData = response;
+        this.weatherData = response.weather[0].icon;
+        this.returnDescription=response.weather[0].description;
+        this.currentTemp=response.main.temp;
+        console.log(this.returnDescription);
+        console.log(this.currentTemp);
         console.log(this.weatherData);
       });
   }
