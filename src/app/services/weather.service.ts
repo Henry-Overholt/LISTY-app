@@ -11,7 +11,9 @@ export class WeatherService {
   traffic: any;
   constructor(private http: HttpClient) {}
   getWeatherData(zip: string): Observable<any> {
+
     return this.http.get(`http://localhost:5252/weather?zip=${zip}`);
+
     //api.openweathermap.org/data/2.5/forecast/hourly?zip=94040,us
   }
   getTrafficData(trafficData: any): Observable<any> {

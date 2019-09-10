@@ -1,5 +1,14 @@
-import { Component, OnInit } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  AfterViewInit,
+  Input,
+  Output,
+  EventEmitter
+} from "@angular/core";
 import { WeatherService } from "./../services/weather.service";
+import { TodoService } from "./../services/todo.service";
+import { EventService } from "./../services/event.service";
 import { NgForm } from "@angular/forms";
 import { TodoService } from "../services/todo.service";
 import { EventService } from "../services/event.service";
@@ -9,13 +18,17 @@ import { EventService } from "../services/event.service";
   templateUrl: "./new-entry.component.html",
   styleUrls: ["./new-entry.component.css"]
 })
-export class NewEntryComponent implements OnInit {
+export class NewEntryComponent implements OnInit, AfterViewInit {
+  @Input() adressType: string;
+  @Output() setAddress: EventEmitter<any> = new EventEmitter();
+  // @ViewChild("addresstext") addresstext: any;
   weatherData: any;
   trafficData: any;
   trafficString: any;
   showNewEntry: boolean = false;
-  showTodo: boolean = false;
-  showEvent: boolean = false;
+
+  showForm: boolean = false;
+
   toDoList: any[];
   eventList: any[];
 
@@ -26,18 +39,14 @@ export class NewEntryComponent implements OnInit {
   ) {}
 
   ngOnInit() {}
+  ngAfterViewInit() {}
 
   handleNewEntry(): void {
+    this.showForm = false;
     this.showNewEntry = !this.showNewEntry;
   }
   handleTypeForm(form: NgForm): void {
     this.showNewEntry = !this.showNewEntry;
-
-    if (form.value.entryType === "To-do") {
-      this.showTodo = !this.showTodo;
-    } else if (form.value.entryType === "Event") {
-      this.showEvent = !this.showEvent;
-    }
   }
 
   postTodo(form: NgForm): void {
@@ -46,6 +55,8 @@ export class NewEntryComponent implements OnInit {
       form.reset();
     });
   }
+
+
 
   postEvent(form: NgForm): void {
     this.eventService.postEvent(form.value).subscribe(response => {
@@ -57,7 +68,15 @@ export class NewEntryComponent implements OnInit {
   handleEventForm() {
     console.log("form was requested");
   }
-
+  handletoggle() {
+    if (this.showForm === false) {
+      this.showForm = true;
+    } else if (this.showForm === true) {
+      this.showForm = false;
+    }
+    // this.showForm = !this.showForm;
+    console.log("toggle");
+  }
   getWeather(eventForm: NgForm): void {
     // console.log(eventForm.value.date, eventForm.value.time);
     this.weatherService
