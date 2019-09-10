@@ -10,6 +10,7 @@ import { WeatherService } from "./../services/weather.service";
 import { TodoService } from "./../services/todo.service";
 import { EventService } from "./../services/event.service";
 import { NgForm } from "@angular/forms";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-new-entry",
@@ -25,9 +26,8 @@ export class NewEntryComponent implements OnInit, AfterViewInit {
   trafficString: any;
   showNewEntry: boolean = false;
 
-
-returnDescription:any;
-currentTemp:any;
+  returnDescription: any;
+  currentTemp: any;
 
   showForm: boolean = false;
   toDoList: any[];
@@ -36,7 +36,8 @@ currentTemp:any;
   constructor(
     private weatherService: WeatherService,
     private todoService: TodoService,
-    private eventService: EventService
+    private eventService: EventService,
+    private router: Router
   ) {}
 
   ngOnInit() {}
@@ -50,6 +51,7 @@ currentTemp:any;
     this.todoService.postToDo(form.value).subscribe(response => {
       this.toDoList = response;
       form.reset();
+      this.showNewEntry = !this.showNewEntry;
     });
   }
 
@@ -57,6 +59,7 @@ currentTemp:any;
     this.eventService.postEvent(form.value).subscribe(response => {
       this.eventList = response;
       form.reset();
+      this.showNewEntry = !this.showNewEntry;
     });
   }
 
@@ -78,12 +81,15 @@ currentTemp:any;
       .getWeatherData(eventForm.value.event_zip)
       .subscribe(response => {
         this.weatherData = response.weather[0].icon;
-        this.returnDescription=response.weather[0].description;
-        this.currentTemp=response.main.temp;
+        this.returnDescription = response.weather[0].description;
+        this.currentTemp = this.convertKtoF(response.main.temp);
         console.log(this.returnDescription);
         console.log(this.currentTemp);
         console.log(this.weatherData);
       });
+  }
+  convertKtoF(Kalvin: number): number {
+    return (Kalvin - 273.15) * (9 / 5) + 32;
   }
   getTraffic(eventForm: NgForm): void {
     // console.log(eventForm.value.time, eventForm.value.date);
