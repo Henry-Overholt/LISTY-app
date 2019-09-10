@@ -16,7 +16,6 @@
     </label>
   </div>
 
-
   <form #todoForm="ngForm" (ngSubmit)="postTodo(todoForm)" *ngIf="!showForm">
     <label for="todoName">What is your new To-do?</label>
     <input type="text" name="to_do_item" ngModel />
