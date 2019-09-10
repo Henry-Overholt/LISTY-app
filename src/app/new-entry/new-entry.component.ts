@@ -24,6 +24,11 @@ export class NewEntryComponent implements OnInit, AfterViewInit {
   trafficData: any;
   trafficString: any;
   showNewEntry: boolean = false;
+
+
+returnDescription:any;
+currentTemp:any;
+
   showForm: boolean = false;
   toDoList: any[];
   eventList: any[];
@@ -41,10 +46,6 @@ export class NewEntryComponent implements OnInit, AfterViewInit {
     this.showForm = false;
     this.showNewEntry = !this.showNewEntry;
   }
-  handleTypeForm(form: NgForm): void {
-    this.showNewEntry = !this.showNewEntry;
-  }
-
   postTodo(form: NgForm): void {
     this.todoService.postToDo(form.value).subscribe(response => {
       this.toDoList = response;
@@ -76,7 +77,11 @@ export class NewEntryComponent implements OnInit, AfterViewInit {
     this.weatherService
       .getWeatherData(eventForm.value.event_zip)
       .subscribe(response => {
-        this.weatherData = response;
+        this.weatherData = response.weather[0].icon;
+        this.returnDescription=response.weather[0].description;
+        this.currentTemp=response.main.temp;
+        console.log(this.returnDescription);
+        console.log(this.currentTemp);
         console.log(this.weatherData);
       });
   }

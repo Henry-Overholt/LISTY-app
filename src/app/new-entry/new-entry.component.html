@@ -45,8 +45,9 @@
       postEvent(eventForm); getWeather(eventForm); getTraffic(eventForm)
     "
   >
-    <label for="eventName">Name: </label>
+    <label for="eventName">Event Name: </label>
     <input type="text" name="event_name" ngModel />
+
     <label for="time">Time of Event</label>
     <input type="time" name="event_start_time" ngModel />
     <label for="time">End Time of Event</label>
@@ -57,11 +58,14 @@
     <label for="startAdd">Starting Address: </label>
     <input
       type="text"
+
       name="starting_address"
+
       placeholder="Starting Address"
       ngModel
     />
     <label for="startCity">Starting City: </label>
+
     <input
       type="text"
       name="starting_city"
@@ -72,13 +76,16 @@
     <input
       type="text"
       name="starting_state"
+
       placeholder="Starting State"
       ngModel
     />
     <label for="startZip">Starting Zipcode: </label>
     <input
+
       type="number"
       name="starting_zip"
+
       placeholder="Starting Zipcode"
       ngModel
     />
@@ -91,6 +98,7 @@
       ngModel
     />
     <label for="endCity">Event City: </label>
+
     <input type="text" name="event_city" placeholder="ending City" ngModel />
     <label for="endState">Event State: </label>
     <input type="text" name="event_state" placeholder="ending State" ngModel />
@@ -101,3 +109,13 @@
     <button>ADD EVENT</button>
   </form>
 </div>
+
+<!-- adding in icon -->
+
+<p>{{currentTemp}}</p>
+<p>{{returnDescription}}</p>
+
+<i class ="owi owi-09d"></i>
+
+<img src="http://openweathemap.org/img/wn/{{weatherData}}@2x.png" alt=""/>
+
