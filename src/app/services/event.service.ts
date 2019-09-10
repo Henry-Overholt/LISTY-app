@@ -10,6 +10,6 @@ export class EventService {
 
   postEvent(eventItem: object): Observable<any> {
     console.log(eventItem);
-    return this.http.post("http://localhost:5252/to_do", eventItem);
+    return this.http.post("http://localhost:5252/event", eventItem);
   }
 }

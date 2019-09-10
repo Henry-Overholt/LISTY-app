@@ -17,17 +17,19 @@ import { NgForm } from "@angular/forms";
   styleUrls: ["./new-entry.component.css"]
 })
 export class NewEntryComponent implements OnInit, AfterViewInit {
-  @Input() adressType: string;
+  @Input() addressType: string;
   @Output() setAddress: EventEmitter<any> = new EventEmitter();
   // @ViewChild("addresstext") addresstext: any;
   weatherData: any;
   trafficData: any;
   trafficString: any;
   showNewEntry: boolean = false;
+
+
 returnDescription:any;
 currentTemp:any;
-  showForm: boolean = false;
 
+  showForm: boolean = false;
   toDoList: any[];
   eventList: any[];
 
