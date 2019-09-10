@@ -22,7 +22,7 @@
     <label for="date">When?</label>
     <input type="date" name="to_do_date" ngModel />
     <label for="priority">How important is this To-do?</label>
-    <select name="priority" id="priority" name="to_do_priority" ngModel>
+    <select name="to_do_priority" id="priority" name="to_do_priority" ngModel>
       <option value="low">Low</option>
       <option value="medium">Medium</option>
       <option value="high">High</option>
@@ -44,21 +44,14 @@
     (ngSubmit)="handleEventForm(); getWeather(eventForm); getTraffic(eventForm)"
   >
     <label for="eventName">Name: </label>
-    <input type="text" name="eventName" ngModel />
+    <input type="text" name="event_name" ngModel />
     <label for="time">Time of Event</label>
-    <input type="time" name="time" ngModel />
+    <input type="time" name="event_time" ngModel />
     <label for="date">Date of Event</label>
-    <input type="date" name="date" ngModel />
+    <input type="date" name="event_date" ngModel />
     <p>Where are you leaving from?</p>
     <label for="startAdd">Starting Address: </label>
-    <input
-      type="text"
-      name="startAdd"
-      placeholder="Starting Address"
-      #addresstext
-      [(ngModel)]="autocompleteInput"
-    />
-
+    <input type="text" name="startAdd" placeholder="Starting Address" ngModel />
     <label for="startCity">Starting City: </label>
     <input type="text" name="startCity" placeholder="Starting City" ngModel />
     <label for="startState">Starting State: </label>
@@ -67,14 +60,7 @@
     <input type="text" name="startZip" placeholder="Starting Zipcode" ngModel />
     <p>Where is your event?</p>
     <label for="eventAdd">Event Address: </label>
-    <input
-      type="text"
-      name="eventAdd"
-      placeholder="Event Address"
-      #addresstext
-      ngModel
-    />
-
+    <input type="text" name="eventAdd" placeholder="Event Address" ngModel />
     <label for="endCity">Event City: </label>
     <input type="text" name="endCity" placeholder="ending City" ngModel />
     <label for="endState">Event State: </label>

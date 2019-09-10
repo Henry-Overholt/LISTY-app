@@ -1,9 +1,15 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class EventService {
+  constructor(private http: HttpClient) {}
 
-  constructor() { }
+  postEvent(eventItem: object): Observable<any> {
+    console.log(eventItem);
+    return this.http.post("http://localhost:5252/to_do", eventItem);
+  }
 }

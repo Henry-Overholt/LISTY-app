@@ -1,21 +1,16 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Router } from "@angular/router";
 import { Observable } from "rxjs";
+// import { Router } from "@angular/router";
 
 @Injectable({
   providedIn: "root"
 })
 export class TodoService {
-  // newTodo: object;
   constructor(private http: HttpClient) {}
-  getTodo(): Observable<any> {
-    return this.http.get("http://localhost:5252/to_do");
+
+  postToDo(toDo: object): Observable<any> {
+    console.log(toDo);
+    return this.http.post("http://localhost:5252/to_do", toDo);
   }
-  postTodo(newTodo: object): Observable<any> {
-    console.log(newTodo);
-    return this.http.post("http://localhost:5252/to_do", newTodo);
-  }
-  putTodo(): void {}
-  deleteTodo(): void {}
 }

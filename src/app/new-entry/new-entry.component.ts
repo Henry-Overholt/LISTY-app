@@ -4,14 +4,12 @@ import {
   AfterViewInit,
   Input,
   Output,
-  EventEmitter,
-  ViewChild
+  EventEmitter
 } from "@angular/core";
 import { WeatherService } from "./../services/weather.service";
 import { TodoService } from "./../services/todo.service";
 import { EventService } from "./../services/event.service";
 import { NgForm } from "@angular/forms";
-// import {} from "@types/googlemaps";
 
 @Component({
   selector: "app-new-entry",
@@ -27,8 +25,9 @@ export class NewEntryComponent implements OnInit, AfterViewInit {
   trafficString: any;
   showNewEntry: boolean = false;
   showForm: boolean = false;
+  toDoList: any[];
+  eventList: any[];
 
-  autocompleteInput: string;
   constructor(
     private weatherService: WeatherService,
     private todoService: TodoService,
@@ -39,17 +38,37 @@ export class NewEntryComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {}
 
   handleNewEntry(): void {
+    this.showForm = false;
     this.showNewEntry = !this.showNewEntry;
   }
-  postTodo(todoForm: NgForm): void {
-    this.todoService.postTodo(todoForm.value);
+  handleTypeForm(form: NgForm): void {
     this.showNewEntry = !this.showNewEntry;
   }
+
+  postTodo(form: NgForm): void {
+    this.todoService.postToDo(form.value).subscribe(response => {
+      this.toDoList = response;
+      form.reset();
+    });
+  }
+
+  postEvent(form: NgForm): void {
+    this.eventService.postEvent(form.value).subscribe(response => {
+      this.eventList = response;
+      form.reset();
+    });
+  }
+
   handleEventForm() {
     console.log("form was requested");
   }
   handletoggle() {
-    this.showForm = !this.showForm;
+    if (this.showForm === false) {
+      this.showForm = true;
+    } else if (this.showForm === true) {
+      this.showForm = false;
+    }
+    // this.showForm = !this.showForm;
     console.log("toggle");
   }
   getWeather(eventForm: NgForm): void {
