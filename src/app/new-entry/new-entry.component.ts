@@ -10,8 +10,6 @@ import { WeatherService } from "./../services/weather.service";
 import { TodoService } from "./../services/todo.service";
 import { EventService } from "./../services/event.service";
 import { NgForm } from "@angular/forms";
-import { TodoService } from "../services/todo.service";
-import { EventService } from "../services/event.service";
 
 @Component({
   selector: "app-new-entry",
@@ -45,18 +43,12 @@ export class NewEntryComponent implements OnInit, AfterViewInit {
     this.showForm = false;
     this.showNewEntry = !this.showNewEntry;
   }
-  handleTypeForm(form: NgForm): void {
-    this.showNewEntry = !this.showNewEntry;
-  }
-
   postTodo(form: NgForm): void {
     this.todoService.postToDo(form.value).subscribe(response => {
       this.toDoList = response;
       form.reset();
     });
   }
-
-
 
   postEvent(form: NgForm): void {
     this.eventService.postEvent(form.value).subscribe(response => {
@@ -80,7 +72,7 @@ export class NewEntryComponent implements OnInit, AfterViewInit {
   getWeather(eventForm: NgForm): void {
     // console.log(eventForm.value.date, eventForm.value.time);
     this.weatherService
-      .getWeatherData(eventForm.value.eventZip)
+      .getWeatherData(eventForm.value.event_zip)
       .subscribe(response => {
         this.weatherData = response;
         console.log(this.weatherData);
