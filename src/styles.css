@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  /* ------------------------------------------ */
+  font-family: "Lemon", cursive;
+  background: linear-gradient(
+      180deg,
+      rgba(0, 200, 223, 0.24) 17.71%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    #ffffff;
+}
