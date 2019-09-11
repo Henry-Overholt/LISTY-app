@@ -1,5 +1,10 @@
+<div>
+  <h2>Todo</h2>
+  <h2>Event</h2>
+</div>
+
 <div id="wrapper">
-  <label for="onoffswitch">Is this new To-do or a new Event?</label>
+  <!-- <label for="onoffswitch">Is this new To-do or a new Event?</label> -->
   <div class="onoffswitch">
     <input
       type="checkbox"
@@ -16,17 +21,17 @@
   </div>
 
   <form #todoForm="ngForm" (ngSubmit)="postTodo(todoForm)" *ngIf="!showForm">
-    <label for="todoName">What is your new To-do?</label>
+    <label for="todoName">Todo:</label>
     <input type="text" name="to_do_item" ngModel />
-    <label for="date">When?</label>
+    <label for="date">Due date:</label>
     <input type="date" name="to_do_date" ngModel />
-    <label for="priority">How important is this To-do?</label>
+    <label for="priority">Urgency:</label>
     <select name="to_do_priority" id="priority" ngModel>
       <option value="low">Low</option>
       <option value="medium">Medium</option>
       <option value="high">High</option>
     </select>
-    <label for="notes">Additional To-do Notes: </label>
+    <label for="notes">Notes:</label>
     <textarea
       name="to_do_notes"
       id="notes"
@@ -34,7 +39,16 @@
       rows="5"
       ngModel
     ></textarea>
-    <button>ADD TO-DO</button>
+    <!-- <button>ADD TO-DO</button> -->
+    <button>
+      <img
+        routerLink="/home"
+        routerLinkActive="active"
+        id="new-item"
+        src="./../../assets/correct-symbol.svg"
+        alt="Add Item"
+      />
+    </button>
   </form>
 
   <form
@@ -44,15 +58,14 @@
       postEvent(eventForm); getWeather(eventForm); getTraffic(eventForm)
     "
   >
-    <label for="eventName">Event Name: </label>
+    <label for="eventName">Event:</label>
     <input type="text" name="event_name" ngModel />
-
-    <label for="time">Time of Event</label>
-    <input type="time" name="event_start_time" ngModel />
-    <label for="time">End Time of Event</label>
-    <input type="time" name="event_end_time" ngModel />
-    <label for="date">Date of Event</label>
+    <label for="date">Date:</label>
     <input type="date" name="event_date" ngModel />
+    <label for="time">Starts:</label>
+    <input type="time" name="event_start_time" ngModel />
+    <label for="time">Ends:</label>
+    <input type="time" name="event_end_time" ngModel />
     <p>Where are you leaving from?</p>
     <label for="startAdd">Starting Address: </label>
     <input
@@ -100,7 +113,16 @@
     <input type="number" name="event_zip" placeholder="Event Zipcode" ngModel />
     <label for="notes">Additional Event Notes:</label>
     <textarea name="event_notes" id="" cols="50" rows="5" ngModel></textarea>
-    <button>ADD EVENT</button>
+    <!-- <button>ADD EVENT</button> -->
+    <button>
+      <img
+        routerLink="/home"
+        routerLinkActive="active"
+        id="new-item"
+        src="./../../assets/correct-symbol.svg"
+        alt="Add Item"
+      />
+    </button>
   </form>
 </div>
 
