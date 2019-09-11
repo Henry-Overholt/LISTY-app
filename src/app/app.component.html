@@ -1,1 +1,25 @@
-<router-outlet></router-outlet>
+<!-- <router-outlet></router-outlet> -->
+
+<main>
+  <ul class="nav-bar">
+    <li><img src="assets/sailboat.svg" alt="listy logo" id="logo" /></li>
+    <li id="listy">Listy</li>
+    <li style="float:right">
+      <img
+        routerLink="/new"
+        routerLinkActive="active"
+        id="new-item"
+        src="./../assets/plus-symbol.svg"
+        alt="Add Item"
+      />
+      <img
+        routerLink="/home"
+        routerLinkActive="active"
+        id="new-item"
+        src="./../assets/left-arrow.svg"
+        alt="Add Item"
+      />
+    </li>
+  </ul>
+  <router-outlet></router-outlet>
+</main>
