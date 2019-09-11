@@ -18,9 +18,6 @@ import { Router } from "@angular/router";
   styleUrls: ["./new-entry.component.css"]
 })
 export class NewEntryComponent implements OnInit, AfterViewInit {
-  @Input() addressType: string;
-  @Output() setAddress: EventEmitter<any> = new EventEmitter();
-  // @ViewChild("addresstext") addresstext: any;
   weatherData: any;
   trafficData: any;
   trafficString: any;
@@ -28,7 +25,7 @@ export class NewEntryComponent implements OnInit, AfterViewInit {
 
   returnDescription: any;
   currentTemp: any;
-
+  today: string = this.todoService.getDate();
   showForm: boolean = false;
   toDoList: any[];
   eventList: any[];
