@@ -1,0 +1,103 @@
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  /* ------------------------------------------- */
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #01172f;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #4caf50;
+} */
+
+#logo {
+  height: 45px;
+  margin: 5px;
+}
+
+#listy {
+  color: #ffffff;
+  font-size: 35px;
+  border: 1px solid #000000;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#new-item {
+  height: 30px;
+  margin: 10px 10px;
+}
+
+/* ----------------------------------------- */
+.newItem {
+  /* position: fixed; */
+  height: 50px;
+  width: 50px;
+  margin: 0;
+  /* margin-top: 50%; */
+  /* background: #fe7590; */
+  fill: #fe7590;
+}
+
+#cal-icon,
+#cloudy {
+  height: 30px;
+  margin: 10px 10px;
+}
+
+.event,
+.todo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  /* ----------------------------------------------- */
+  /* display: block; */
+  background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    #fef7e5;
+  mix-blend-mode: normal;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+}
+
+.event-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.event-details > p {
+  margin: 5px 5px;
+}
+
+.leave-in {
+  font-size: 12px;
+}
