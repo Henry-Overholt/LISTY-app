@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { TodoService } from "./../services/todo.service";
+import { EventService } from "./../services/event.service";
 
 @Component({
   selector: "app-tomorrow",
@@ -8,12 +9,19 @@ import { TodoService } from "./../services/todo.service";
 })
 export class TomorrowComponent implements OnInit {
   tomorrowTodoList: any[];
-  constructor(private todoService: TodoService) {}
+  tomorrowEventList: any[];
+  constructor(
+    private todoService: TodoService,
+    private eventService: EventService
+  ) {}
 
   ngOnInit() {
     this.todoService
-      .getTodo("2019-09-11")
+      .getTodo(this.todoService.getTomorrowDate(), false)
       .subscribe(response => (this.tomorrowTodoList = response));
+    this.eventService
+      .getEvent(this.todoService.getTomorrowDate(), false)
+      .subscribe(response => (this.tomorrowEventList = response));
   }
   deleteTodo(id: number) {
     this.todoService

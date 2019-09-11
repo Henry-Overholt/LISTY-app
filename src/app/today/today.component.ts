@@ -8,22 +8,28 @@ import { EventService } from "./../services/event.service";
   styleUrls: ["./today.component.css"]
 })
 export class TodayComponent implements OnInit {
-  todaytodoList: any[];
+  todoList: any[];
+  todayTodoList: any[];
   tomorrowTodoList: any[];
   upcomingTodoList: any[];
+  todayEventList: any[];
   constructor(
     private todoService: TodoService,
     private eventService: EventService
   ) {}
 
   ngOnInit() {
+    // this.todoService.sortTodo();
     this.todoService
-      .getTodo("2019-09-10")
-      .subscribe(response => (this.todaytodoList = response));
+      .getTodo(this.todoService.getDate(), false)
+      .subscribe(response => (this.todayTodoList = response));
+    this.eventService
+      .getEvent(this.todoService.getDate(), false)
+      .subscribe(response => (this.todayEventList = response));
   }
   deleteTodo(id: number) {
     this.todoService
       .deleteTodo(id)
-      .subscribe(response => (this.todaytodoList = response));
+      .subscribe(response => (this.todayTodoList = response));
   }
 }

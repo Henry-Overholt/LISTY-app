@@ -1,8 +1,9 @@
 <h2>Today</h2>
 <ul>
-  <li *ngFor="let todo of todaytodoList; index as i">
+  <li *ngFor="let todo of todayTodoList; index as i">
     <div>
       <p>{{ todo.to_do_item }}</p>
+      <p>{{ todo.to_do_date }}</p>
       <button (click)="deleteTodo(todo.id)">Complete</button>
     </div>
   </li>
@@ -11,7 +12,8 @@
 <ul>
   <li *ngFor="let event of todayEventList; index as i">
     <div>
-      <p></p>
+      <p>{{ event.event_name }}</p>
+      <p>{{ event.event_date }}</p>
       <button>X</button>
     </div>
   </li>
