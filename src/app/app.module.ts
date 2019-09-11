@@ -14,6 +14,8 @@ import { UpcomingComponent } from "./upcoming/upcoming.component";
 import { HomeComponent } from "./home/home.component";
 const appRoutes: Routes = [
   { path: "home", component: HomeComponent },
+  { path: "new", component: NewEntryComponent },
+  // { path: "home", component: AppComponent },
   { path: "**", component: HomeComponent },
   { path: "", redirectTo: "/home", pathMatch: "full" }
 ];
