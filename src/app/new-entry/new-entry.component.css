@@ -41,6 +41,7 @@ form {
 button {
   display: block;
   margin-left: auto;
+  padding: 0;
   border: none;
   background: linear-gradient(
       0deg,
@@ -50,7 +51,8 @@ button {
     #fef7e5;
 }
 
-.green-check {
+green-check {
+  margin: 0;
   background: linear-gradient(
       0deg,
       rgba(255, 255, 255, 0.5),
