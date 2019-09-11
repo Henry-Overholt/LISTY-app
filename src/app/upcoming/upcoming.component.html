@@ -14,7 +14,10 @@
     <div>
       <p>{{ event.event_name }}</p>
       <p>{{ event.event_date }}</p>
-      <button>X</button>
+      <p>{{ event.event_zip }}</p>
+      <button (click)="getWeather(event.event_zip)">
+        Get Weather and Traffic
+      </button>
     </div>
   </li>
 </ul>
