@@ -43,6 +43,7 @@ export class NewEntryComponent implements OnInit, AfterViewInit {
       console.log("clicked on component");
       form.reset();
       this.showNewEntry = !this.showNewEntry;
+      this.eventService.navigateToHome();
     });
   }
 
