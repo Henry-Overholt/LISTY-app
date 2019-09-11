@@ -15,6 +15,7 @@ export class TodoService {
   postToDo(toDo: object): Observable<any> {
     console.log(toDo);
     return this.http.post("http://localhost:5252/to_do", toDo);
+    // console.log(toDo);
   }
   deleteTodo(id: number): Observable<any> {
     console.log(id);
