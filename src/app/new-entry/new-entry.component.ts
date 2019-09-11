@@ -25,9 +25,8 @@ export class NewEntryComponent implements OnInit, AfterViewInit {
   trafficString: any;
   showNewEntry: boolean = false;
 
-
-returnDescription:any;
-currentTemp:any;
+  returnDescription: any;
+  currentTemp: any;
 
   showForm: boolean = false;
   toDoList: any[];
@@ -78,8 +77,8 @@ currentTemp:any;
       .getWeatherData(eventForm.value.event_zip)
       .subscribe(response => {
         this.weatherData = response.weather[0].icon;
-        this.returnDescription=response.weather[0].description;
-        this.currentTemp=response.main.temp;
+        this.returnDescription = response.weather[0].description;
+        this.currentTemp = response.main.temp;
         console.log(this.returnDescription);
         console.log(this.currentTemp);
         console.log(this.weatherData);
@@ -93,6 +92,19 @@ currentTemp:any;
       this.trafficData = response.rows[0].elements[0];
       console.log(this.trafficData);
     });
+  }
+
+  getDate() {
+    let date: Date = new Date();
+    // return this.getDate;
+    console.log(date);
+    console.log(date);
+  }
+  getTomorrowDate() {
+    let d = new Date();
+    let date =
+      "" + d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + (d.getDate() + 1);
+    console.log(date);
   }
 }
 // response.weather[0].icon
