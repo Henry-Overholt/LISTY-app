@@ -15,6 +15,7 @@ export class TomorrowComponent implements OnInit {
   weatherData: any;
   currentTemp: any;
   trafficData: any;
+  show: boolean = false;
   constructor(
     private todoService: TodoService,
     private eventService: EventService,
@@ -52,6 +53,10 @@ export class TomorrowComponent implements OnInit {
   }
   convertKtoF(Kalvin: number): number {
     return (Kalvin - 273.15) * (9 / 5) + 32;
+  }
+  showInfo() {
+    this.show = !this.show;
+    console.log("bye");
   }
   getTraffic(event): void {
     // console.log(eventForm.value.time, eventForm.value.date);
