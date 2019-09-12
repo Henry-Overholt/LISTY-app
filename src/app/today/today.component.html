@@ -16,11 +16,15 @@
     <div>
       <p>{{ event.event_name }}</p>
       <p>{{ event.event_date }}</p>
+
       <button (click)="callApi(event)">
         Get Weather and Traffic
       </button>
-
-      <p>{{ currentTemp }}°F</p>
+      <img
+        src="http://openweathermap.org/img/wn/{{ weatherData }}@2x.png"
+        alt=""
+      />
+      <p>{{ currentTemp }}</p>
       <p>{{ returnDescription }}</p>
       <p>{{ trafficData }}</p>
     </div>
