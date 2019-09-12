@@ -1,11 +1,4 @@
-import {
-  Component,
-  OnInit,
-  AfterViewInit,
-  Input,
-  Output,
-  EventEmitter
-} from "@angular/core";
+import { Component, OnInit, AfterViewInit } from "@angular/core";
 import { WeatherService } from "./../services/weather.service";
 import { TodoService } from "./../services/todo.service";
 import { EventService } from "./../services/event.service";
@@ -47,16 +40,20 @@ export class NewEntryComponent implements OnInit, AfterViewInit {
   postTodo(form: NgForm): void {
     this.todoService.postToDo(form.value).subscribe(response => {
       this.toDoList = response;
+      console.log("clicked on component");
       form.reset();
       this.showNewEntry = !this.showNewEntry;
+      this.eventService.navigateToHome();
     });
   }
 
   postEvent(form: NgForm): void {
     this.eventService.postEvent(form.value).subscribe(response => {
       this.eventList = response;
+      console.log("clicked on component");
       form.reset();
       this.showNewEntry = !this.showNewEntry;
+      this.eventService.navigateToHome();
     });
   }
 

@@ -35,18 +35,4 @@ export class TodoService {
     console.log(date);
     return date;
   }
-  // sortTodo(): void {
-  //   this.getTodo().subscribe(response => (this.todoList = response));
-  //   console.log(this.todoList);
-  // }
-  // getTodayList(today: any[]): any {
-  //   this.todayTodoList = today;
-  //   console.log(this.todayTodoList);
-  // }
-  // getTomorrowList(tomorrowlist): void {
-  //   this.tomorrowTodoList = tomorrowlist;
-  // }
-  // getUpcomingList(upcoming): void {
-  //   this.upcomingTodoList = upcoming;
-  // }
 }
