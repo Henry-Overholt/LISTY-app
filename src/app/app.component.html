@@ -17,11 +17,19 @@
       <img
         routerLink="/home"
         routerLinkActive="active"
-        id="new-item"
+        id="back-arrow"
         src="./../assets/left-arrow.svg"
         alt="Add Item"
       />
     </div>
   </header>
-  <router-outlet></router-outlet>
+  <div class="content-area">
+    <div class="sidebar">
+      <h2>New Item</h2>
+      <app-new-entry></app-new-entry>
+    </div>
+    <div id="list-area">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </main>
