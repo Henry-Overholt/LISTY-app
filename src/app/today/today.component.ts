@@ -16,6 +16,7 @@ export class TodayComponent implements OnInit {
   weatherData: any;
   currentTemp: any;
   trafficData: any;
+  show: boolean = false;
   constructor(
     private todoService: TodoService,
     private eventService: EventService,
@@ -40,6 +41,10 @@ export class TodayComponent implements OnInit {
     this.getWeather(event.event_zip);
     this.getTraffic(event);
     console.log(event);
+  }
+  showInfo() {
+    this.show = !this.show;
+    console.log("bye");
   }
   getWeather(zip: string): void {
     // console.log(eventForm.value.date, eventForm.value.time);

@@ -20,9 +20,18 @@
       <button (click)="getWeather(event.event_zip)">
         Get Weather and Traffic
       </button>
+      <i (mouseover)="showInfo()" (mouseout)="showInfo()">
+        <img
+          src="http://openweathermap.org/img/wn/{{ weatherData }}@2x.png"
+          alt=""
+      /></i>
+      <div *ngIf="show">
+        <p>{{ currentTemp }}°F</p>
+        <p>{{ returnDescription }}</p>
+      </div>
 
-      <p>{{ currentTemp }}</p>
-      <p>{{ returnDescription }}</p>
+      <!-- <p>{{ currentTemp }}</p>
+      <p>{{ returnDescription }}</p> -->
     </div>
   </li>
 </ul>

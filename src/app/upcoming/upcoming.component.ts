@@ -15,6 +15,7 @@ export class UpcomingComponent implements OnInit {
   returnDescription: any;
   weatherData: any;
   currentTemp: any;
+  show: boolean = false;
   constructor(
     private todoService: TodoService,
     private eventService: EventService,
@@ -45,6 +46,10 @@ export class UpcomingComponent implements OnInit {
       console.log(this.currentTemp);
       console.log(this.weatherData);
     });
+  }
+  showInfo() {
+    this.show = !this.show;
+    console.log("bye");
   }
   convertKtoF(Kalvin: number): number {
     return (Kalvin - 273.15) * (9 / 5) + 32;
