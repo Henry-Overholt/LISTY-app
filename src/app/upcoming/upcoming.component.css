@@ -1,0 +1,19 @@
+ul {
+  list-style: none;
+}
+li {
+  display: flex;
+  align-items: center;
+  background: white;
+  width: 95%;
+  border: 1px solid grey;
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 20px;
+}
+img {
+  position: relative;
+  height: 35px;
+  width: 35px;
+  padding-right: 10px;
+}
