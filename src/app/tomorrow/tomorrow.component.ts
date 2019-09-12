@@ -57,11 +57,9 @@ export class TomorrowComponent implements OnInit {
     // console.log(eventForm.value.time, eventForm.value.date);
     // this.trafficString = trafficForm.value;
     // this.trafficString.replace(/\s/g, "+");
-    this.weatherService.getTrafficData(
-      event.subscribe(response => {
-        this.trafficData = response.rows[0].elements[0];
-        console.log(this.trafficData);
-      })
-    );
+    this.weatherService.getTrafficData(event).subscribe(response => {
+      this.trafficData = response.rows[0].elements[0].duration.text;
+      console.log(this.trafficData);
+    });
   }
 }
