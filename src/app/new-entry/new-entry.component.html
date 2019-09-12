@@ -1,9 +1,9 @@
-<div>
-  <h2>Todo</h2>
-  <h2>Event</h2>
-</div>
+<div id="formHeader">
+  <div>
+    <h2 *ngIf="!showForm">Todo</h2>
+    <h2 *ngIf="showForm">Event</h2>
+  </div>
 
-<div id="wrapper">
   <!-- <label for="onoffswitch">Is this new To-do or a new Event?</label> -->
   <div class="onoffswitch">
     <input
@@ -19,7 +19,8 @@
       <span class="onoffswitch-switch"></span>
     </label>
   </div>
-
+</div>
+<div id="wrapper">
   <form #todoForm="ngForm" (ngSubmit)="postTodo(todoForm)" *ngIf="!showForm">
     <label for="todoName">Todo:</label>
     <input type="text" name="to_do_item" ngModel />
@@ -108,7 +109,7 @@
     <textarea name="event_notes" id="" cols="50" rows="5" ngModel></textarea>
     <button>
       <img
-        id="new-event"
+        id="new-item"
         src="./../../assets/correct-symbol.svg"
         alt="Add Item"
       />

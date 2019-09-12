@@ -67,6 +67,12 @@
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
   right: 0px;
 }
+#formHeader {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
 
 #new-item {
   height: 30px;
