@@ -1,3 +1,82 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  /* ----------------------------------------------- */
+  /* display: block; */
+  background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    #fef7e5;
+  mix-blend-mode: normal;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+}
+
+#form-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toggle {
+  height: 30px;
+  margin: 10px 10px;
+}
+
+#new-item {
+  height: 30px;
+  margin: 10px 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  display: block;
+  margin-left: auto;
+  padding: 0;
+  border: none;
+  background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    #fef7e5;
+}
+
+green-check {
+  margin: 0;
+  background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    #fef7e5;
+}
+
+/* .event-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+} */
+
+/* .event-details > p {
+  margin: 5px 5px;
+} */
+
+/* .leave-in {
+  font-size: 12px;
+} */
+
+/* ------------------------------------- */
+
 .onoffswitch {
   position: relative;
   width: 90px;
@@ -66,9 +145,4 @@
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
   right: 0px;
-}
-
-#new-item {
-  height: 30px;
-  margin: 10px 10px;
 }
