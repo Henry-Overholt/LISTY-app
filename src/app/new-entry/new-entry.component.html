@@ -1,130 +1,166 @@
-<div id="formHeader">
-  <div>
+<div class="form-container">
+  <div id="form-header">
     <h2 *ngIf="!showForm">Todo</h2>
     <h2 *ngIf="showForm">Event</h2>
-  </div>
-
-  <!-- <label for="onoffswitch">Is this new To-do or a new Event?</label> -->
-  <div class="onoffswitch">
-    <input
-      type="checkbox"
-      name="onoffswitch"
-      class="onoffswitch-checkbox"
-      id="myonoffswitch"
-      checked
+    <img
       (click)="handletoggle()"
+      *ngIf="!showForm"
+      class="toggle"
+      src="./../../assets/left-toggle.svg"
+      alt="Todo"
     />
-    <label class="onoffswitch-label" for="myonoffswitch">
-      <span class="onoffswitch-inner"></span>
-      <span class="onoffswitch-switch"></span>
-    </label>
+    <img
+      img
+      (click)="handletoggle()"
+      *ngIf="showForm"
+      class="toggle"
+      src="./../../assets/right-toggle.svg"
+      alt="Event"
+    />
   </div>
+
+  <div id="wrapper">
+    <!-- <label for="onoffswitch">Is this new To-do or a new Event?</label> -->
+
+    <form #todoForm="ngForm" (ngSubmit)="postTodo(todoForm)" *ngIf="!showForm">
+      <div>
+        <label for="todoName">Title:</label>
+        <input type="text" name="to_do_item" ngModel />
+        <label for="date">Due date:</label>
+        <input type="date" name="to_do_date" ngModel />
+        <label for="priority">Urgency:</label>
+        <select name="to_do_priority" id="priority" ngModel>
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+        <label for="notes">Notes:</label>
+        <textarea
+          name="to_do_notes"
+          id="notes"
+          cols="50"
+          rows="5"
+          ngModel
+        ></textarea>
+      </div>
+      <!-- <button>ADD TO-DO</button> -->
+      <div>
+        <button>
+          <img
+            class="green-check"
+            id="new-item"
+            src="./../../assets/correct-symbol.svg"
+            alt="Add Item"
+          />
+        </button>
+      </div>
+    </form>
+
+    <form
+      #eventForm="ngForm"
+      *ngIf="showForm"
+      (ngSubmit)="
+        postEvent(eventForm); getWeather(eventForm); getTraffic(eventForm)
+      "
+    >
+      <div>
+        <label for="eventName">Event:</label>
+        <input type="text" name="event_name" ngModel />
+        <label for="date">Date:</label>
+        <input type="date" name="event_date" ngModel />
+        <label for="time">Starts:</label>
+        <input type="time" name="event_start_time" ngModel />
+        <label for="time">Ends:</label>
+        <input type="time" name="event_end_time" ngModel />
+        <p>Where are you leaving from?</p>
+        <label for="startAdd">Starting Address: </label>
+        <input
+          type="text"
+          name="starting_address"
+          placeholder="Starting Address"
+          ngModel
+        />
+        <label for="startCity">Starting City: </label>
+
+        <input
+          type="text"
+          name="starting_city"
+          placeholder="Starting City"
+          ngModel
+        />
+        <label for="startState">Starting State: </label>
+        <input
+          type="text"
+          name="starting_state"
+          placeholder="Starting State"
+          ngModel
+        />
+        <label for="startZip">Starting Zipcode: </label>
+        <input
+          type="number"
+          name="starting_zip"
+          placeholder="Starting Zipcode"
+          ngModel
+        />
+        <p>Where is your event?</p>
+        <label for="eventAdd">Event Address: </label>
+        <input
+          type="text"
+          name="event_address"
+          placeholder="Event Address"
+          ngModel
+        />
+        <label for="endCity">Event City: </label>
+
+        <input
+          type="text"
+          name="event_city"
+          placeholder="ending City"
+          ngModel
+        />
+        <label for="endState">Event State: </label>
+        <input
+          type="text"
+          name="event_state"
+          placeholder="ending State"
+          ngModel
+        />
+        <label for="eventZip">Event Zipcode: </label>
+        <input
+          type="number"
+          name="event_zip"
+          placeholder="Event Zipcode"
+          ngModel
+        />
+        <label for="notes">Additional Event Notes:</label>
+        <textarea
+          name="event_notes"
+          id=""
+          cols="50"
+          rows="5"
+          ngModel
+        ></textarea>
+      </div>
+      <!-- <button>ADD EVENT</button> -->
+      <div>
+        <button>
+          <img
+            class="green-check"
+            id="new-item"
+            src="./../../assets/correct-symbol.svg"
+            alt="Add Item"
+          />
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <!-- adding in icon -->
+
+  <!-- <p>{{currentTemp}}</p>
+      <p>{{returnDescription}}</p>
+      
+      <i class ="owi owi-09d"></i>
+      
+      <img src="http://openweathemap.org/img/wn/{{weatherData}}@2x.png" alt=""/> -->
 </div>
-<div id="wrapper">
-  <form #todoForm="ngForm" (ngSubmit)="postTodo(todoForm)" *ngIf="!showForm">
-    <label for="todoName">Todo:</label>
-    <input type="text" name="to_do_item" ngModel />
-    <label for="date">Due date:</label>
-    <input type="date" name="to_do_date" ngModel />
-    <label for="priority">Urgency:</label>
-    <select name="to_do_priority" id="priority" ngModel>
-      <option value="low">Low</option>
-      <option value="medium">Medium</option>
-      <option value="high">High</option>
-    </select>
-    <label for="notes">Notes:</label>
-    <textarea
-      name="to_do_notes"
-      id="notes"
-      cols="50"
-      rows="5"
-      ngModel
-    ></textarea>
-    <!-- <button>ADD TO-DO</button> -->
-    <button>
-      <img
-        id="new-item"
-        src="./../../assets/correct-symbol.svg"
-        alt="Add Item"
-      />
-    </button>
-  </form>
-
-  <form #eventForm="ngForm" (ngSubmit)="postEvent(eventForm)" *ngIf="showForm">
-    <!-- ; getWeather(eventForm); getTraffic(eventForm) -->
-    <label for="eventName">Event:</label>
-    <input type="text" name="event_name" ngModel />
-    <label for="date">Date:</label>
-    <input type="date" name="event_date" ngModel />
-    <label for="time">Starts:</label>
-    <input type="time" name="event_start_time" ngModel />
-    <label for="time">Ends:</label>
-    <input type="time" name="event_end_time" ngModel />
-    <p>Where are you leaving from?</p>
-    <label for="startAdd">Starting Address: </label>
-    <input
-      type="text"
-      name="starting_address"
-      placeholder="Starting Address"
-      ngModel
-    />
-    <label for="startCity">Starting City: </label>
-
-    <input
-      type="text"
-      name="starting_city"
-      placeholder="Starting City"
-      ngModel
-    />
-    <label for="startState">Starting State: </label>
-    <input
-      type="text"
-      name="starting_state"
-      placeholder="Starting State"
-      ngModel
-    />
-    <label for="startZip">Starting Zipcode: </label>
-    <input
-      type="number"
-      name="starting_zip"
-      placeholder="Starting Zipcode"
-      ngModel
-    />
-    <p>Where is your event?</p>
-    <label for="eventAdd">Event Address: </label>
-    <input
-      type="text"
-      name="event_address"
-      placeholder="Event Address"
-      ngModel
-    />
-    <label for="endCity">Event City: </label>
-
-    <input type="text" name="event_city" placeholder="ending City" ngModel />
-    <label for="endState">Event State: </label>
-    <input type="text" name="event_state" placeholder="ending State" ngModel />
-    <label for="eventZip">Event Zipcode: </label>
-    <input type="number" name="event_zip" placeholder="Event Zipcode" ngModel />
-    <label for="notes">Additional Event Notes:</label>
-    <textarea name="event_notes" id="" cols="50" rows="5" ngModel></textarea>
-    <button>
-      <img
-        id="new-item"
-        src="./../../assets/correct-symbol.svg"
-        alt="Add Item"
-      />
-    </button>
-    <!-- <button> -->
-
-    <!-- </button> -->
-  </form>
-</div>
-
-<!-- adding in icon -->
-
-<!-- <p>{{currentTemp}}</p>
-<p>{{returnDescription}}</p>
-
-<i class ="owi owi-09d"></i>
-
-<img src="http://openweathemap.org/img/wn/{{weatherData}}@2x.png" alt=""/> -->

@@ -6,8 +6,8 @@ main {
 .nav-bar {
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   /* ------------------------------------------- */
   list-style-type: none;
   margin: 0;
@@ -19,39 +19,24 @@ main {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+.branding {
+  display: flex;
+}
+
 .active {
   display: none;
 }
 
-li {
-  float: left;
-}
-
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-/* li a:hover:not(.active) {
-    background-color: #111;
-  }
-  
-  .active {
-    background-color: #4caf50;
-  } */
-
 #logo {
+  margin: 10px 10px;
   height: 45px;
   margin: 5px;
 }
 
 #listy {
+  margin: 10px 0;
   color: #ffffff;
   font-size: 35px;
-  border: 1px solid #000000;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
