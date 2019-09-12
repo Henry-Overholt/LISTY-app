@@ -93,18 +93,5 @@ export class NewEntryComponent implements OnInit, AfterViewInit {
       console.log(this.trafficData);
     });
   }
-
-  getDate() {
-    let date: Date = new Date();
-    // return this.getDate;
-    console.log(date);
-    console.log(date);
-  }
-  getTomorrowDate() {
-    let d = new Date();
-    let date =
-      "" + d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + (d.getDate() + 1);
-    console.log(date);
-  }
 }
 // response.weather[0].icon
