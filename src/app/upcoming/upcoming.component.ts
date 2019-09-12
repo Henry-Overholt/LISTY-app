@@ -34,6 +34,7 @@ export class UpcomingComponent implements OnInit {
       .deleteTodo(id)
       .subscribe(response => (this.upcomingTodoList = response));
   }
+
   getWeather(zip: string): void {
     // console.log(eventForm.value.date, eventForm.value.time);
     this.weatherService.getWeatherData(zip).subscribe(response => {
