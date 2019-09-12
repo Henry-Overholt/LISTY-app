@@ -14,11 +14,12 @@
     <div>
       <p>{{ event.event_name }}</p>
       <p>{{ event.event_date }}</p>
+
       <button (click)="callApi(event)">
         Get Weather and Traffic
       </button>
 
-      <p>{{ currentTemp }}°F</p>
+      <p>{{ currentTemp }}</p>
       <p>{{ returnDescription }}</p>
       <p>{{ trafficData }}</p>
     </div>
