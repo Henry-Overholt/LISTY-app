@@ -12,12 +12,14 @@ import { TodayComponent } from "./today/today.component";
 import { TomorrowComponent } from "./tomorrow/tomorrow.component";
 import { UpcomingComponent } from "./upcoming/upcoming.component";
 import { HomeComponent } from "./home/home.component";
+import { LandingPageComponent } from "./landing-page/landing-page.component";
 const appRoutes: Routes = [
   { path: "home", component: HomeComponent },
   { path: "new", component: NewEntryComponent },
+  { path: "landingpage", component: LandingPageComponent },
   // { path: "home", component: AppComponent },
-  { path: "**", component: HomeComponent },
-  { path: "", redirectTo: "/home", pathMatch: "full" }
+  { path: "**", component: LandingPageComponent },
+  { path: "", redirectTo: "/landingpage", pathMatch: "full" }
 ];
 
 @NgModule({
@@ -27,7 +29,8 @@ const appRoutes: Routes = [
     TodayComponent,
     TomorrowComponent,
     UpcomingComponent,
-    HomeComponent
+    HomeComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,
