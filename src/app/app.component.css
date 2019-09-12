@@ -111,7 +111,16 @@ main {
     flex: 4;
   }
 
-  #new-item {
+  #new-item,
+  #back-arrow {
     display: none;
+  }
+
+  #list-area > .form-container {
+    display: none;
+  }
+
+  .form-container {
+    margin: 0 50px;
   }
 }
