@@ -3,12 +3,15 @@ main {
   flex-direction: column;
 }
 
+.sidebar {
+  display: none;
+}
+
 .nav-bar {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  /* ------------------------------------------- */
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -38,19 +41,16 @@ main {
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-#new-item {
+#new-item,
+#back-arrow {
   height: 30px;
   margin: 10px 10px;
 }
 
-/* ----------------------------------------- */
 .newItem {
-  /* position: fixed; */
   height: 50px;
   width: 50px;
   margin: 0;
-  /* margin-top: 50%; */
-  /* background: #fe7590; */
   fill: #fe7590;
 }
 
@@ -66,8 +66,6 @@ main {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  /* ----------------------------------------------- */
-  /* display: block; */
   background: linear-gradient(
       0deg,
       rgba(255, 255, 255, 0.5),
@@ -91,4 +89,27 @@ main {
 
 .leave-in {
   font-size: 12px;
+}
+
+/* Desktop Styling ************************************************************************ */
+@media only screen and (min-width: 992px) {
+  .content-area {
+    display: flex;
+  }
+
+  .sidebar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: linear-gradient(0deg, #f5d26e, #f5d26e);
+  }
+
+  #list-area {
+    flex: 4;
+  }
+
+  #new-item {
+    display: none;
+  }
 }
