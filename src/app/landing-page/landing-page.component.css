@@ -1,5 +1,34 @@
-* {
+/* * {
   background: linear-gradient(to top, #01172f20 20%, rgba(0, 200, 223) 80%);
+  z-index: 2;
+} */
+
+.sun {
+  width: 100px;
+  height: 100px;
+  background-color: #f5d26e;
+  border-radius: 50%;
+  position: absolute;
+  top: 40%;
+  right: 5%;
+  box-shadow: 0px 0px 52px 2px rgba(255, 170, 0, 1);
+}
+
+.about {
+  z-index: 0;
+  /* width: 50%; */
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+}
+
+button {
+  background-color: #fe7590;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+  font-family: "Lemon", cursive;
+  width: 50%;
 }
 
 @keyframes move_wave {
@@ -73,7 +102,7 @@
 }
 
 img {
-  width: 25%;
+  width: 40%;
   position: fixed;
   left: 50%;
   right: 50%;
@@ -108,6 +137,20 @@ img {
   text-align: center;
 }
 
-.about {
-  z-index: 0;
+/* Desktop Styling ************************************************************************ */
+@media only screen and (min-width: 782px) {
+  img {
+    width: 25%;
+  }
+
+  .sun {
+    position: absolute;
+    top: 20%;
+    right: 5%;
+  }
+
+  .about {
+    width: 50%;
+  }
+
 }
