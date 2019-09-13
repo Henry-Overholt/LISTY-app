@@ -17,6 +17,8 @@ export class TodayComponent implements OnInit {
   currentTemp: any;
   trafficData: any;
   show: boolean = false;
+  completedTodo: any[];
+  completed: boolean = false;
   constructor(
     private todoService: TodoService,
     private eventService: EventService,
@@ -32,9 +34,15 @@ export class TodayComponent implements OnInit {
       .getEvent(this.todoService.getDate(), false)
       .subscribe(response => (this.todayEventList = response));
   }
+  // moveCompleted(i: number): any[] {
+  //   this.completedTodo.splice(i);
+  //   this.todayTodoList.splice(i, 1);
+  //   console.log(this.completedTodo);
+  //   return this.todayTodoList;
+  // }
   deleteTodo(id: number) {
     this.todoService
-      .deleteTodo(id)
+      .deleteTodo(id, this.todoService.getDate(), false)
       .subscribe(response => (this.todayTodoList = response));
   }
   callApi(event): void {
@@ -68,5 +76,8 @@ export class TodayComponent implements OnInit {
       this.trafficData = response.rows[0].elements[0].duration.text;
       console.log(this.trafficData);
     });
+  }
+  markCompleted(): void {
+    this.completed = true;
   }
 }

@@ -32,7 +32,7 @@ export class TomorrowComponent implements OnInit {
   }
   deleteTodo(id: number) {
     this.todoService
-      .deleteTodo(id)
+      .deleteTodo(id, this.todoService.getTomorrowDate(), false)
       .subscribe(response => (this.tomorrowTodoList = response));
   }
   callApi(event): void {
