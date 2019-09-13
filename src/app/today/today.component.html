@@ -1,4 +1,17 @@
-<h2>Today</h2>
+<div class="todayHeader">
+  <h2>Today</h2>
+  <div class="current">
+    <p class="currentHeader">Current:</p>
+    <div class="currentWeather">
+      <p class="temp">{{ todayTemp }}°F</p>
+      <img
+        class="todayImg"
+        src="http://openweathermap.org/img/wn/{{ currentWeatherData }}@2x.png"
+        alt=""
+      />
+    </div>
+  </div>
+</div>
 <ul>
   <li
     *ngFor="let todo of todayTodoList; index as i"
@@ -8,9 +21,9 @@
       low: todo.to_do_priority === 'low'
     }"
   >
-    <div class="checkbox" (click)="markCompleted()">
+    <div class="checkbox" (click)="markCompleted(i)">
       <img
-        *ngIf="completed"
+        *ngIf="todo.completed"
         class="complete"
         src="./../../assets//correct-symbol.svg"
         alt=""
@@ -25,8 +38,14 @@
         <span *ngIf="todo.to_do_priority === 'high'">!!!</span>
       </p>
       <p>{{ todo.to_do_date }}</p>
-      <button (click)="deleteTodo(todo.id)">Complete</button>
+
+      <!-- <button (click)="deleteTodo(todo.id)">Complete</button> -->
     </div>
+
+    <!-- <div class="notes">
+      <p>Notes:</p>
+      <p>{{ todo.to_do_notes }}</p>
+    </div> -->
   </li>
 </ul>
 
@@ -37,19 +56,19 @@
       <p>{{ event.event_name }}</p>
       <p>{{ event.event_date }}</p>
 
-      <button (click)="callApi(event)">
+      <button (click)="callApi(i)">
         Get Weather and Traffic
       </button>
-      <i (mouseover)="showInfo()" (mouseout)="showInfo()">
+      <i (mouseover)="showInfo(i)" (mouseout)="showInfo(i)">
         <img
           src="http://openweathermap.org/img/wn/{{ weatherData }}@2x.png"
           alt=""
       /></i>
-      <div *ngIf="show">
+      <div *ngIf="event.show">
         <p>{{ currentTemp }}°F</p>
         <p>{{ returnDescription }}</p>
       </div>
-      <p>{{ trafficData }}</p>
+      <p *ngIf="event.call">Drive time is: {{ trafficData }}</p>
     </div>
   </li>
 </ul>

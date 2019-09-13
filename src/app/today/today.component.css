@@ -4,6 +4,8 @@ ul {
 li {
   display: flex;
   align-items: center;
+  width: 100%;
+  /* justify-content: space-around; */
   background: white;
   width: 95%;
   padding: 10px;
@@ -52,9 +54,60 @@ button {
   height: 25px;
   width: 25px;
   background: white;
-  border: 3px solid black;
+  border: 3px solid #fe7590;
 }
 .complete {
   height: 25px;
   width: 25px;
+}
+
+.notes {
+  width: 40%;
+}
+
+.todayHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+  margin-right: 20px;
+}
+.currentWeather {
+  display: flex;
+  flex-direction: row;
+  margin: 0px;
+
+  /* padding: 0px 0px 2px 5px; */
+}
+.todayImg {
+  height: 70px;
+  width: 70px;
+  padding: 0;
+}
+.current {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 0px 5px 5px;
+  box-shadow: 2px 2px 2px 2px rgba(255, 166, 0, 0.473);
+  background: white;
+  border-radius: 10px;
+}
+.currentHeader {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+.temp {
+  font-size: 20px;
+}
+
+@media only screen and (min-width: 992px) {
+  .temp {
+    font-size: 10px;
+  }
+  .todayImg {
+    height: 35px;
+    width: 35px;
+  }
 }
