@@ -1,0 +1,155 @@
+.sun {
+  width: 100px;
+  height: 100px;
+  background-color: #f5d26e;
+  border-radius: 50%;
+  position: absolute;
+  top: 45%;
+  right: 5%;
+  box-shadow: 0px 0px 52px 2px rgba(255, 170, 0, 1);
+}
+
+.about {
+  z-index: 0;
+  font-family: "Manjari", sans-serif;
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+  font-size: 20px;
+}
+
+button {
+  background-color: #fe7590;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+  font-family: "Lemon", cursive;
+  width: 50%;
+  z-index: 1;
+}
+
+@keyframes move_wave {
+  0% {
+    transform: translateX(0) translateZ(0) scaleY(1);
+  }
+  50% {
+    transform: translateX(-25%) translateZ(0) scaleY(0.55);
+  }
+  100% {
+    transform: translateX(-50%) translateZ(0) scaleY(1);
+  }
+}
+
+.waveWrapper.waveAnimation {
+  pointer-events: none;
+}
+
+.waveWrapper {
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+}
+.waveWrapperInner {
+  position: absolute;
+  width: 100%;
+  overflow: hidden;
+  height: 100%;
+  bottom: -1px;
+}
+.bgTop {
+  z-index: 15;
+  opacity: 0.5;
+}
+.bgMiddle {
+  opacity: 0.75;
+}
+.bgBottom {
+}
+.wave {
+  position: absolute;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background-repeat: repeat no-repeat;
+  background-position: 0 bottom;
+  transform-origin: center bottom;
+}
+.waveTop {
+  background-size: 50% 100px;
+}
+.waveAnimation .waveTop {
+  animation: move-wave 3s;
+  -webkit-animation: move-wave 3s;
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+}
+.waveMiddle {
+  background-size: 50% 120px;
+}
+.waveAnimation .waveMiddle {
+  animation: move_wave 10s linear infinite;
+}
+.waveBottom {
+  background-size: 50% 100px;
+}
+.waveAnimation .waveBottom {
+  animation: move_wave 15s linear infinite;
+}
+
+#listyboat {
+  width: 30%;
+  position: fixed;
+  left: 50%;
+  right: 50%;
+  bottom: 5%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  background: none;
+}
+
+@keyframes swing {
+  0%,
+  100% {
+    transform: rotate(30deg);
+  }
+  20% {
+    transform: scale(0.95);
+  }
+  50% {
+    transform: rotate(30deg);
+  }
+  80% {
+    transform: scale(0.95);
+  }
+}
+
+#listyboat {
+  animation: swing 10s infinite ease-in-out;
+}
+
+.event {
+  margin: 50px auto;
+  text-align: center;
+}
+
+/* Desktop Styling ************************************************************************ */
+@media only screen and (min-width: 768px) {
+  #listyboat {
+    width: 20%;
+  }
+
+  .sun {
+    position: absolute;
+    top: 30%;
+    right: 5%;
+  }
+
+  .about {
+    width: 50%;
+    font-size: 20px;
+  }
+}

@@ -1,1 +1,49 @@
-<button (click)="navigateHome()">Get started</button>
+
+<div class="sun"></div>
+
+<div class="about">
+  <p>
+    Listy is an application that keeps you afloat through all waves of life. We
+    help you track your events and todos while providing you with weather and
+    drive time information. Listy is your lifeline to help make sure you don't
+    get lost in the sea of your priorities. Add your todos and your events and
+    let Listy do the rest.
+  </p>
+  <button (click)="navigateToHome()">Let's get started!</button>
+</div>
+
+<section class="event" id="event">
+  <div class="cell well">
+    <div class="event-content">
+      <img
+        src="assets/sailboat.svg"
+        alt="Listy boat"
+        id="listyboat"
+        width="200"
+      />
+    </div>
+  </div>
+</section>
+
+<div class="waveWrapper waveAnimation">
+  <div class="waveWrapperInner bgTop">
+    <div
+      class="wave waveTop"
+      style="background-image: url('http://front-end-noobs.com/jecko/img/wave-top.png')"
+    ></div>
+  </div>
+  <div class="waveWrapperInner bgMiddle">
+    <div
+      class="wave waveMiddle"
+      style="background-image: url('http://front-end-noobs.com/jecko/img/wave-mid.png')"
+    ></div>
+  </div>
+  <div class="waveWrapperInner bgBottom">
+    <div
+      class="wave waveBottom"
+      style="background-image: url('http://front-end-noobs.com/jecko/img/wave-bot.png')"
+    ></div>
+  </div>
+</div>
+
+

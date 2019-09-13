@@ -10,8 +10,10 @@ export class LandingPageComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit() {}
-  navigateHome(): void {
+
+  navigateToHome(): void {
     console.log("pushed");
+
     this.router.navigate(["home"]);
   }
 }
