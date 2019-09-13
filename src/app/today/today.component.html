@@ -1,15 +1,13 @@
 <div class="todayHeader">
   <h2>Today</h2>
-  <div class="current">
-    <p class="currentHeader">Current:</p>
-    <div class="currentWeather">
-      <p class="temp">{{ todayTemp }}°F</p>
-      <img
-        class="todayImg"
-        src="http://openweathermap.org/img/wn/{{ currentWeatherData }}@2x.png"
-        alt=""
-      />
-    </div>
+  <div class="currentWeather">
+    <p>{{ date }}</p>
+    <img
+      class="todayImg"
+      src="http://openweathermap.org/img/wn/{{ currentWeatherData }}@2x.png"
+      alt=""
+    />
+    <p>{{ todayTemp }}°F</p>
   </div>
 </div>
 <ul>
@@ -21,54 +19,69 @@
       low: todo.to_do_priority === 'low'
     }"
   >
-    <div class="checkbox" (click)="markCompleted(i)">
-      <img
-        *ngIf="todo.completed"
-        class="complete"
-        src="./../../assets//correct-symbol.svg"
-        alt=""
-      />
+    <div class="listItem">
+      <div class="checkbox" (click)="markCompleted(i)">
+        <img
+          *ngIf="todo.completed"
+          class="complete"
+          src="./../../assets//correct-symbol.svg"
+          alt=""
+        />
+      </div>
+      <div>
+        <p>
+          {{ todo.to_do_item }}
+          <span *ngIf="todo.to_do_priority === 'low'">!</span>
+          <span *ngIf="todo.to_do_priority === 'medium'">!!</span>
+          <span *ngIf="todo.to_do_priority === 'high'">!!!</span>
+        </p>
+      </div>
+      <button class="infoButton" (click)="showExtra(i)">More Info:</button>
     </div>
-    <!-- <img id="new-item" src="./../../assets/reminder.svg" alt="" /> -->
-    <div>
-      <p>
-        {{ todo.to_do_item }}
-        <span *ngIf="todo.to_do_priority === 'low'">!</span>
-        <span *ngIf="todo.to_do_priority === 'medium'">!!</span>
-        <span *ngIf="todo.to_do_priority === 'high'">!!!</span>
-      </p>
-      <p>{{ todo.to_do_date }}</p>
-
-      <!-- <button (click)="deleteTodo(todo.id)">Complete</button> -->
+    <div class="moreInfo" *ngIf="todo.show">
+      <p>Date: {{ date }}</p>
+      <p>Notes: {{ todo.to_do_notes }}</p>
     </div>
-
-    <!-- <div class="notes">
-      <p>Notes:</p>
-      <p>{{ todo.to_do_notes }}</p>
-    </div> -->
   </li>
 </ul>
 
 <ul>
   <li *ngFor="let event of todayEventList; index as i">
-    <img id="new-item" src="./../../assets/calendar.svg" alt="Add Item" />
-    <div>
-      <p>{{ event.event_name }}</p>
-      <p>{{ event.event_date }}</p>
+    <div class="eventItem">
+      <img id="new-item" src="./../../assets/calendar.svg" alt="Add Item" />
 
-      <button (click)="callApi(i)">
-        Get Weather and Traffic
-      </button>
-      <i (mouseover)="showInfo(i)" (mouseout)="showInfo(i)">
+      <div>
+        <p>{{ event.event_name }}</p>
+        <p>{{ event.event_start_time }}</p>
+      </div>
+      <div>
+        <button (click)="callApi(i)">
+          Get Weather and Traffic
+        </button>
+        <button class="infoButton" (click)="showEventInfo(i)">
+          More Info:
+        </button>
+      </div>
+    </div>
+
+    <div *ngIf="event.call">
+      <i (mouseover)="showWeather(i)" (mouseout)="showWeather(i)">
         <img
           src="http://openweathermap.org/img/wn/{{ weatherData }}@2x.png"
           alt=""
       /></i>
-      <div *ngIf="event.show">
+      <div *ngIf="event.weather">
         <p>{{ currentTemp }}°F</p>
         <p>{{ returnDescription }}</p>
       </div>
-      <p *ngIf="event.call">Drive time is: {{ trafficData }}</p>
+    </div>
+    <p *ngIf="event.call">Drive time is: {{ trafficData }}</p>
+    <div class="moreInfo" *ngIf="event.show">
+      <p>
+        Address: {{ event.event_address }} {{ event.event_city }}
+        {{ event.event_state }}
+      </p>
+      <p>Notes: {{ event.event_notes }}</p>
     </div>
   </li>
 </ul>

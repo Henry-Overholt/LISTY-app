@@ -2,7 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { TodoService } from "./../services/todo.service";
 import { EventService } from "./../services/event.service";
 import { WeatherService } from "./../services/weather.service";
-import { NgForm } from "@angular/forms";
 
 @Component({
   selector: "app-today",
@@ -13,6 +12,7 @@ export class TodayComponent implements OnInit {
   todayTodoList: any[];
   todayEventList: any[];
   returnDescription: any;
+  date: string = this.todoService.getDate();
   weatherData: any;
   currentTemp: any;
   trafficData: any;
@@ -40,10 +40,12 @@ export class TodayComponent implements OnInit {
       .subscribe(response => (this.todayEventList = response));
     this.currentWeather("48226");
     this.todayTodoList.forEach(todo => {
+      todo.show = false;
       todo.completed = false;
     });
     this.todayEventList.forEach(event => {
       event.call = false;
+      event.weather = false;
       event.show = false;
     });
   }
@@ -66,7 +68,6 @@ export class TodayComponent implements OnInit {
   }
   showInfo(i) {
     this.todayEventList[i].show = !this.todayEventList[i].show;
-    this.show = !this.show;
     console.log("bye");
   }
   currentWeather(zip: string): void {
@@ -106,5 +107,14 @@ export class TodayComponent implements OnInit {
   postCompleted(i): void {
     this.completedTodo.push(this.todayTodoList[i]);
     console.log(this.completedTodo);
+  }
+  showExtra(i): void {
+    this.todayTodoList[i].show = !this.todayTodoList[i].show;
+  }
+  showEventInfo(i): void {
+    this.todayEventList[i].show = !this.todayEventList[i].show;
+  }
+  showWeather(i): void {
+    this.todayEventList[i].weather = !this.todayEventList[i].weather;
   }
 }

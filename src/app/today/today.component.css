@@ -1,18 +1,25 @@
 ul {
   list-style: none;
+
+  margin-right: 50px;
 }
 li {
   display: flex;
   align-items: center;
+  flex-direction: column;
   width: 100%;
   /* justify-content: space-around; */
   background: white;
-  width: 95%;
+  /* width: 95%; */
   padding: 10px;
   margin-top: 15px;
   border-radius: 20px;
-
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 255, 0.37);
+}
+.listItem {
+  display: flex;
+  align-items: center;
+  width: 100%;
 }
 li:hover {
   transform: scale(1.03);
@@ -49,65 +56,79 @@ img {
 }
 button {
   background: #fe7590;
+  padding: 5px;
+  border-radius: 10px;
+  color: white;
 }
 .checkbox {
-  height: 25px;
-  width: 25px;
+  height: 10px;
+  width: 10px;
   background: white;
   border: 3px solid #fe7590;
+  margin-right: 20px;
 }
 .complete {
-  height: 25px;
-  width: 25px;
+  height: 10px;
+  width: 10px;
+  position: relative;
+  bottom: 5px;
+}
+.infoButton {
+  position: relative;
+  left: 30px;
 }
 
 .notes {
   width: 40%;
 }
-
 .todayHeader {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin: 10px;
-  margin-right: 20px;
+  justify-content: space-between;
+  margin: 10px 20px 10px 10px;
+}
+.todayImg {
+  height: 35px;
+  width: 35px;
+  padding: 0;
+  margin: 0;
 }
 .currentWeather {
   display: flex;
-  flex-direction: row;
-  margin: 0px;
-
-  /* padding: 0px 0px 2px 5px; */
-}
-.todayImg {
-  height: 70px;
-  width: 70px;
-  padding: 0;
-}
-.current {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  padding: 5px 0px 5px 5px;
+  width: 40%;
+  height: 30px;
+  /* padding: 5px 0px 5px 5px; */
   box-shadow: 2px 2px 2px 2px rgba(255, 166, 0, 0.473);
   background: white;
   border-radius: 10px;
+  font-size: 12px;
 }
-.currentHeader {
-  margin-bottom: 0px;
-  padding-bottom: 0px;
+.moreInfo {
+  font-size: 12px;
+  width: 100%;
 }
-.temp {
-  font-size: 20px;
+.eventItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 @media only screen and (min-width: 992px) {
-  .temp {
-    font-size: 10px;
-  }
   .todayImg {
-    height: 35px;
-    width: 35px;
+    height: 70px;
+    width: 70px;
+  }
+  .checkbox {
+    height: 20px;
+    width: 20px;
+  }
+  .complete {
+    height: 20px;
+    width: 20px;
+    position: relative;
+    bottom: 0px;
   }
 }
