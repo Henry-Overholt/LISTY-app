@@ -1,0 +1,127 @@
+main {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    display: none;
+  }
+  
+  .nav-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    overflow: hidden;
+    background-color: #01172f;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  
+  .branding {
+    display: flex;
+  }
+  
+  .active {
+    display: none;
+  }
+  
+  #logo {
+    margin: 10px 10px;
+    height: 45px;
+    margin: 5px;
+  }
+  
+  #listy {
+    margin: 10px 0;
+    color: #ffffff;
+    font-size: 35px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  
+  #new-item,
+  #back-arrow {
+    height: 30px;
+    margin: 10px 10px;
+  }
+  
+  .newItem {
+    height: 50px;
+    width: 50px;
+    margin: 0;
+    fill: #fe7590;
+  }
+  
+  #cal-icon,
+  #cloudy {
+    height: 30px;
+    margin: 10px 10px;
+  }
+  
+  .event,
+  .todo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.5),
+        rgba(255, 255, 255, 0.5)
+      ),
+      #fef7e5;
+    mix-blend-mode: normal;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+  }
+  
+  .event-inner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .event-details > p {
+    margin: 5px 5px;
+  }
+  
+  .leave-in {
+    font-size: 12px;
+  }
+  
+  /* Desktop Styling ************************************************************************ */
+  @media only screen and (min-width: 992px) {
+    .content-area {
+      display: flex;
+    }
+  
+    .sidebar {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      background: linear-gradient(0deg, #f5d26e, #f5d26e);
+    }
+  
+    #list-area {
+      flex: 4;
+    }
+  
+    #new-item,
+    #back-arrow {
+      display: none;
+    }
+  
+    #list-area > .form-container {
+      display: none;
+    }
+  
+    .form-container {
+      margin: 0 50px;
+    }
+  }
+  

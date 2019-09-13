@@ -3,23 +3,55 @@
   z-index: 2;
 } */
 
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+  overflow: hidden;
+  background-color: #01172f;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.branding {
+  display: flex;
+}
+#logo {
+  margin: 10px 10px;
+  height: 45px;
+  margin: 5px;
+}
+
+#listy {
+  margin: 10px 0;
+  color: #ffffff;
+  font-size: 35px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
 .sun {
   width: 100px;
   height: 100px;
   background-color: #f5d26e;
   border-radius: 50%;
   position: absolute;
-  top: 40%;
+  top: 45%;
   right: 5%;
   box-shadow: 0px 0px 52px 2px rgba(255, 170, 0, 1);
 }
 
 .about {
   z-index: 0;
-  /* width: 50%; */
+  font-family: "Text Me One", sans-serif;
   display: flex;
   flex-direction: column;
   margin-left: 15px;
+  font-size: 20px; 
 }
 
 button {
@@ -104,8 +136,8 @@ button {
   animation: move_wave 15s linear infinite;
 }
 
-img {
-  width: 40%;
+#listyboat {
+  width: 30%;
   position: fixed;
   left: 50%;
   right: 50%;
@@ -114,55 +146,6 @@ img {
   z-index: 1;
   background: none;
 }
-
-/* html, body { height: 100%; }
-body {
-  background:radial-gradient(ellipse at center, rgba(255,254,234,1) 0%, rgba(255,254,234,1) 35%, #B7E8EB 100%);
-  overflow: hidden;
-}
-
-.ocean { 
-  height: 5%;
-  width:100%;
-  position:absolute;
-  bottom:0;
-  left:0;
-  background: #015871;
-}
-
-.wave {
-  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x; 
-  position: absolute;
-  top: -198px;
-  width: 6400px;
-  height: 198px;
-  animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
-  transform: translate3d(0, 0, 0);
-}
-
-.wave:nth-of-type(2) {
-  top: -175px;
-  animation: wave 10s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.125s infinite, swell 7s ease -1.25s infinite;
-  opacity: 1;
-}
-
-@keyframes wave {
-  0% {
-    margin-left: 0;
-  }
-  100% {
-    margin-left: -1600px;
-  }
-}
-
-@keyframes swell {
-  0%, 100% {
-    transform: translate3d(0,-25px,0);
-  }
-  50% {
-    transform: translate3d(0,5px,0);
-  }
-} */
 
 @keyframes swing {
   0%,
@@ -191,17 +174,18 @@ body {
 
 /* Desktop Styling ************************************************************************ */
 @media only screen and (min-width: 782px) {
-  img {
-    width: 25%;
+  #listyboat {
+    width: 20%;
   }
 
   .sun {
     position: absolute;
-    top: 20%;
+    top: 30%;
     right: 5%;
   }
 
   .about {
     width: 50%;
+    font-size: 16px; 
   }
 }
