@@ -1,37 +1,12 @@
-
-<main>
-  <header class="nav-bar">
-    <div class="branding">
-      <img src="assets/sailboat.svg" alt="listy logo" id="logo" />
-      <p id="listy">Listy</p>
-    </div>
-    <div style="float:right">
-      <img
-        routerLink="/new"
-        routerLinkActive="active"
-        id="new-item"
-        src="./../assets/plus-symbol.svg"
-        alt="Add Item"
-      />
-      <img
-        routerLink="/home"
-        routerLinkActive="active"
-        id="back-arrow"
-        src="./../assets/left-arrow.svg"
-        alt="Add Item"
-      />
-    </div>
-  </header>
-  <div class="content-area">
-    <div class="sidebar">
-      <h2>New Item</h2>
-      <app-new-entry></app-new-entry>
-    </div>
-    <div id="list-area">
-      <router-outlet></router-outlet>
-    </div>
-  </div>
-</main>
+<div class="content-area" id="hide">
+        <div class="sidebar">
+          <h2>New Item</h2>
+          <app-new-entry></app-new-entry>
+        </div>
+        <div id="list-area">
+           <router-outlet></router-outlet>
+        </div>
+      </div>
 
 <app-today></app-today>
 
