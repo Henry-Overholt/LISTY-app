@@ -1,9 +1,29 @@
 <h2>Today</h2>
 <ul>
-  <li *ngFor="let todo of todayTodoList; index as i">
-    <img id="new-item" src="./../../assets/reminder.svg" alt="" />
+  <li
+    *ngFor="let todo of todayTodoList; index as i"
+    [ngClass]="{
+      high: todo.to_do_priority === 'high',
+      medium: todo.to_do_priority === 'medium',
+      low: todo.to_do_priority === 'low'
+    }"
+  >
+    <div class="checkbox" (click)="markCompleted()">
+      <img
+        *ngIf="completed"
+        class="complete"
+        src="./../../assets//correct-symbol.svg"
+        alt=""
+      />
+    </div>
+    <!-- <img id="new-item" src="./../../assets/reminder.svg" alt="" /> -->
     <div>
-      <p>{{ todo.to_do_item }}</p>
+      <p>
+        {{ todo.to_do_item }}
+        <span *ngIf="todo.to_do_priority === 'low'">!</span>
+        <span *ngIf="todo.to_do_priority === 'medium'">!!</span>
+        <span *ngIf="todo.to_do_priority === 'high'">!!!</span>
+      </p>
       <p>{{ todo.to_do_date }}</p>
       <button (click)="deleteTodo(todo.id)">Complete</button>
     </div>

@@ -11,11 +11,50 @@ li {
   border-radius: 20px;
 
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
+}
+li:hover {
+  transform: scale(1.03);
 }
 img {
   position: relative;
   height: 35px;
   width: 35px;
   padding-right: 10px;
+}
+.high {
+  /* border: 3px solid rgba(255, 0, 0, 0.308); */
+  box-shadow: 2px 2px 2px 2px rgba(255, 0, 0, 0.411);
+}
+.high:hover {
+  /* border: 3px solid rgba(255, 0, 0, 0.308); */
+  box-shadow: 5px 5px 5px 5px rgba(255, 0, 0, 0.411);
+}
+.medium {
+  /* border: 3px solid rgba(255, 255, 0, 0.24); */
+  box-shadow: 2px 2px 2px 2px rgba(255, 255, 0, 0.411);
+}
+.medium:hover {
+  /* border: 3px solid rgba(255, 255, 0, 0.24); */
+  box-shadow: 5px 5px 5px 5px rgba(255, 255, 0, 0.411);
+}
+.low {
+  /* border: 3px solid rgba(0, 128, 0, 0.205); */
+  box-shadow: 2px 2px 2px 2px rgba(0, 128, 0, 0.411);
+}
+.low:hover {
+  /* border: 3px solid rgba(0, 128, 0, 0.205); */
+  box-shadow: 5px 5px 5px 5px rgba(0, 128, 0, 0.411);
+}
+button {
+  background: #fe7590;
+}
+.checkbox {
+  height: 25px;
+  width: 25px;
+  background: white;
+  border: 3px solid black;
+}
+.complete {
+  height: 25px;
+  width: 25px;
 }

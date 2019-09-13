@@ -6,13 +6,7 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./home.component.css"]
 })
 export class HomeComponent implements OnInit {
-  // show: boolean;
-
   constructor() {}
 
   ngOnInit() {}
-
-  // handleNewEntry(): void {
-  //   this.show = !this.show;
-  // }
 }
