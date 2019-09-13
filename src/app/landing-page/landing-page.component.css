@@ -11,7 +11,7 @@
 
 .about {
   z-index: 0;
-  font-family: "Text Me One", sans-serif;
+  font-family: "Manjari", sans-serif;
   display: flex;
   flex-direction: column;
   margin-left: 15px;
@@ -141,7 +141,6 @@ button {
   #listyboat {
     width: 20%;
   }
-
 
   .sun {
     position: absolute;
