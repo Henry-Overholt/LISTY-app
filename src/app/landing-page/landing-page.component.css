@@ -29,6 +29,7 @@ button {
   padding: 10px;
   font-family: "Lemon", cursive;
   width: 50%;
+  z-index: 1;
 }
 
 @keyframes move_wave {
@@ -42,6 +43,11 @@ button {
     transform: translateX(-50%) translateZ(0) scaleY(1);
   }
 }
+
+.waveWrapper.waveAnimation {
+  pointer-events: none;
+}
+
 .waveWrapper {
   overflow: hidden;
   position: absolute;
@@ -57,18 +63,15 @@ button {
   overflow: hidden;
   height: 100%;
   bottom: -1px;
-  /* background: linear-gradient(to top, #01172f20 20%, rgba(0, 200, 223) 80%); */
 }
 .bgTop {
   z-index: 15;
   opacity: 0.5;
 }
 .bgMiddle {
-  z-index: 10;
   opacity: 0.75;
 }
 .bgBottom {
-  z-index: 5;
 }
 .wave {
   position: absolute;
@@ -112,6 +115,55 @@ img {
   background: none;
 }
 
+/* html, body { height: 100%; }
+body {
+  background:radial-gradient(ellipse at center, rgba(255,254,234,1) 0%, rgba(255,254,234,1) 35%, #B7E8EB 100%);
+  overflow: hidden;
+}
+
+.ocean { 
+  height: 5%;
+  width:100%;
+  position:absolute;
+  bottom:0;
+  left:0;
+  background: #015871;
+}
+
+.wave {
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x; 
+  position: absolute;
+  top: -198px;
+  width: 6400px;
+  height: 198px;
+  animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
+  transform: translate3d(0, 0, 0);
+}
+
+.wave:nth-of-type(2) {
+  top: -175px;
+  animation: wave 10s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.125s infinite, swell 7s ease -1.25s infinite;
+  opacity: 1;
+}
+
+@keyframes wave {
+  0% {
+    margin-left: 0;
+  }
+  100% {
+    margin-left: -1600px;
+  }
+}
+
+@keyframes swell {
+  0%, 100% {
+    transform: translate3d(0,-25px,0);
+  }
+  50% {
+    transform: translate3d(0,5px,0);
+  }
+} */
+
 @keyframes swing {
   0%,
   100% {
@@ -152,5 +204,4 @@ img {
   .about {
     width: 50%;
   }
-
 }
