@@ -17,9 +17,10 @@ export class TodoService {
     return this.http.post("http://localhost:5252/to_do", toDo);
     // console.log(toDo);
   }
-  deleteTodo(id: number): Observable<any> {
+  deleteTodo(id: number, date, gt): Observable<any> {
+    const params = new HttpParams().set("date", date).set("gt", gt);
     console.log(id);
-    return this.http.delete(`http://localhost:5252/to_do/${id}`);
+    return this.http.delete(`http://localhost:5252/to_do/${id}`, { params });
   }
   getDate() {
     let d = new Date();

@@ -11,7 +11,9 @@ export class LandingPageComponent implements OnInit {
 
   ngOnInit() {}
 
-  navigateToHome() {
+  navigateToHome(): void {
+    console.log("pushed");
+
     this.router.navigate(["home"]);
   }
 }
