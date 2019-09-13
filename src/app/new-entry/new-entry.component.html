@@ -22,18 +22,25 @@
   <div id="wrapper">
     <!-- <label for="onoffswitch">Is this new To-do or a new Event?</label> -->
 
-    <form #todoForm="ngForm" (ngSubmit)="postTodo(todoForm)" *ngIf="!showForm">
-      <div>
+    <form
+      class="todoForm"
+      #todoForm="ngForm"
+      (ngSubmit)="postTodo(todoForm)"
+      *ngIf="!showForm"
+    >
+      <div class="todoForm">
         <label for="todoName">Title:</label>
         <input type="text" name="to_do_item" ngModel />
         <label for="date">Due date:</label>
         <input type="date" name="to_do_date" ngModel />
-        <label for="priority">Urgency:</label>
-        <select name="to_do_priority" id="priority" ngModel>
-          <option value="low">Low</option>
-          <option value="medium">Medium</option>
-          <option value="high">High</option>
-        </select>
+        <div class="priority">
+          <label for="priority">Priority Level:</label>
+          <select name="to_do_priority" id="priority" ngModel>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+        </div>
         <label for="notes">Notes:</label>
         <textarea
           name="to_do_notes"
@@ -57,13 +64,14 @@
     </form>
 
     <form
+      id="eventForm"
       #eventForm="ngForm"
       *ngIf="showForm"
       (ngSubmit)="
         postEvent(eventForm); getWeather(eventForm); getTraffic(eventForm)
       "
     >
-      <div>
+      <div class="eventForm">
         <label for="eventName">Event:</label>
         <input type="text" name="event_name" ngModel />
         <label for="date">Date:</label>
@@ -80,28 +88,30 @@
           placeholder="Starting Address"
           ngModel
         />
-        <label for="startCity">Starting City: </label>
-
-        <input
-          type="text"
-          name="starting_city"
-          placeholder="Starting City"
-          ngModel
-        />
-        <label for="startState">Starting State: </label>
-        <input
-          type="text"
-          name="starting_state"
-          placeholder="Starting State"
-          ngModel
-        />
-        <label for="startZip">Starting Zipcode: </label>
+        <div>
+          <label for="startCity">City: </label>
+          <input
+            type="text"
+            name="starting_city"
+            placeholder="Starting City"
+            ngModel
+          />
+          <label for="startState">State: </label>
+          <input
+            type="text"
+            name="starting_state"
+            placeholder="Starting State"
+            ngModel
+          />
+        </div>
+        <label for="startZip">Zipcode: </label>
         <input
           type="number"
           name="starting_zip"
           placeholder="Starting Zipcode"
           ngModel
         />
+
         <p>Where is your event?</p>
         <label for="eventAdd">Event Address: </label>
         <input
@@ -110,21 +120,23 @@
           placeholder="Event Address"
           ngModel
         />
-        <label for="endCity">Event City: </label>
+        <div>
+          <label for="endCity">Event City: </label>
 
-        <input
-          type="text"
-          name="event_city"
-          placeholder="ending City"
-          ngModel
-        />
-        <label for="endState">Event State: </label>
-        <input
-          type="text"
-          name="event_state"
-          placeholder="ending State"
-          ngModel
-        />
+          <input
+            type="text"
+            name="event_city"
+            placeholder="Event City"
+            ngModel
+          />
+          <label for="endState">Event State: </label>
+          <input
+            type="text"
+            name="event_state"
+            placeholder="Event State"
+            ngModel
+          />
+        </div>
         <label for="eventZip">Event Zipcode: </label>
         <input
           type="number"
