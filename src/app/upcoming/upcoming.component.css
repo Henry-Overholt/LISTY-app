@@ -1,11 +1,13 @@
 ul {
   list-style: none;
+
+  margin-right: 50px;
 }
 li {
   display: flex;
   align-items: center;
   background: white;
-  width: 95%;
+  width: 100%;
   margin-top: 15px;
   padding: 10px;
   border-radius: 20px;
