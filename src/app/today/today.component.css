@@ -1,6 +1,5 @@
 ul {
   list-style: none;
-
   margin-right: 50px;
 }
 li {
@@ -29,6 +28,12 @@ img {
   height: 35px;
   width: 35px;
   padding-right: 10px;
+}
+.icon {
+  position: relative;
+  height: 15px;
+  width: 15px;
+  padding: 9px;
 }
 .high {
   /* border: 3px solid rgba(255, 0, 0, 0.308); */
@@ -59,6 +64,7 @@ button {
   padding: 5px;
   border-radius: 10px;
   color: white;
+  font-family: "Lemon", cursive;
 }
 .checkbox {
   height: 10px;
@@ -74,10 +80,11 @@ button {
   bottom: 5px;
 }
 .infoButton {
-  position: relative;
-  left: 30px;
+  align-content: flex-end;
 }
-
+.itemName {
+  flex: 1;
+}
 .notes {
   width: 40%;
 }

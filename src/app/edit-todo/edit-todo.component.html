@@ -1,0 +1,43 @@
+<form
+  class="editForm"
+  #editForm="ngForm"
+  (ngSubmit)="putTodo(editForm, todoToEdit.id)"
+>
+  <div class="todoForm">
+    <label for="todoName">Title:</label>
+    <input type="text" name="to_do_item" [ngModel]="todoToEdit.to_do_item" />
+    <label for="date">Due date:</label>
+    <input type="date" name="to_do_date" [ngModel]="todoToEdit.to_do_date" />
+    <div class="priority">
+      <label for="priority">Priority Level:</label>
+      <select
+        name="to_do_priority"
+        id="priority"
+        [ngModel]="todoToEdit.to_do_priority"
+      >
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+    </div>
+    <label for="notes">Notes:</label>
+    <textarea
+      name="to_do_notes"
+      id="notes"
+      cols="50"
+      rows="5"
+      [ngModel]="todoToEdit.to_do_notes"
+    ></textarea>
+  </div>
+  <!-- <button>ADD TO-DO</button> -->
+  <div>
+    <button>
+      <img
+        class="green-check"
+        id="new-item"
+        src="./../../assets/correct-symbol.svg"
+        alt="Add Item"
+      />
+    </button>
+  </div>
+</form>
