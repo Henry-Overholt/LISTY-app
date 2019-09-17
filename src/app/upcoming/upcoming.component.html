@@ -2,8 +2,8 @@
   <h2>Upcoming Events</h2>
   <div></div>
 </div>
-
-<ul>
+<app-edit-event *ngIf="eventEdit"></app-edit-event>
+<!-- <ul>
   <li *ngFor="let todo of upcomingTodoList; index as i">
     <div class="listItem">
       <div class="checkbox" (click)="deleteTodo(i)">
@@ -29,38 +29,47 @@
       <p>Notes: {{ todo.to_do_notes }}</p>
     </div>
   </li>
-</ul>
+</ul> -->
 
 <ul>
   <li *ngFor="let event of upcomingEventList; index as i">
-    <img id="new-item" src="./../../assets/calendar.svg" alt="Add Item" />
-    <div>
-      <p>{{ event.event_name }}</p>
-      <p>{{ event.event_date }}</p>
-      <p>Time: {{ event.event_start_time }} - {{ event.event_end_time }}</p>
-      <button class="infoButton" (click)="showEventInfo(i)">
-        More Info
-      </button>
-      <button (click)="callApi(i)">
-        Get Weather and Traffic
-      </button>
-      <p *ngIf="event.call">Drive time is: {{ trafficData }}</p>
-      <div class="moreInfo" *ngIf="event.show">
-        <p>
-          Address: {{ event.event_address }} {{ event.event_city }}
-          {{ event.event_state }}
-        </p>
-        <p>Notes: {{ event.event_notes }}</p>
+    <div class="listItem">
+      <img id="new-item" src="./../../assets/calendar.svg" alt="Add Item" />
+      <div>
+        <p>{{ event.event_name }}</p>
+        <p>{{ event.event_date }}</p>
+        <p>Time: {{ event.event_start_time }} - {{ event.event_end_time }}</p>
       </div>
-      <div class="icons" *ngIf="event.show">
-        <img class="icon" src="./../../assets/edit.svg" alt="edit item" />
-        <img
-          class="icon"
-          src="./../../assets/trash.svg"
-          alt="delete item"
-          (click)="deleteEvent(i)"
-        />
+      <div>
+        <button class="infoButton" (click)="showEventInfo(i)">
+          More Info
+        </button>
+        <button (click)="callApi(i)">
+          Get Traffic
+        </button>
       </div>
+    </div>
+    <p *ngIf="event.call">Drive time is: {{ trafficData }}</p>
+    <div class="moreInfo" *ngIf="event.show">
+      <p>
+        Address: {{ event.event_address }} {{ event.event_city }}
+        {{ event.event_state }}
+      </p>
+      <p>Notes: {{ event.event_notes }}</p>
+    </div>
+    <div class="icons" *ngIf="event.show">
+      <img
+        (click)="editEvent(i)"
+        class="icon"
+        src="./../../assets/edit.svg"
+        alt="edit item"
+      />
+      <img
+        class="icon"
+        src="./../../assets/trash.svg"
+        alt="delete item"
+        (click)="deleteEvent(i)"
+      />
     </div>
   </li>
 </ul>
