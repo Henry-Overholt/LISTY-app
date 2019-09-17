@@ -103,6 +103,9 @@ button {
   border-radius: 10px;
   font-size: 12px;
 }
+
+@media only screen and (min-width: 768px) {
+
 .moreInfo {
   font-size: 12px;
   width: 100%;
@@ -119,7 +122,7 @@ button {
   width: 15px;
   padding: 9px;
 }
-@media only screen and (min-width: 992px) {
+
   .todayImg {
     height: 70px;
     width: 70px;
