@@ -94,9 +94,6 @@ export class TomorrowComponent implements OnInit {
     this.tomorrowEventList[i].call = !this.tomorrowEventList[i].call;
     this.getTraffic(this.tomorrowEventList[i]);
   }
-  editForm(i: number): void {
-    this.tomorrowTodoList[i].edit = !this.tomorrowTodoList[i].edit;
-  }
   editEvent(i: number): void {
     this.eventEdit = !this.eventEdit;
     this.eventToEdit = this.tomorrowEventList[i];

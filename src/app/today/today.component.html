@@ -11,6 +11,7 @@
   </div>
 </div>
 <app-edit-todo *ngIf="edit"></app-edit-todo>
+<app-edit-event *ngIf="eventEdit"></app-edit-event>
 <ul>
   <li
     class="show"
@@ -59,7 +60,7 @@
 </ul>
 
 <ul>
-  <li *ngFor="let event of todayEventList; index as i">
+  <li class="eventList" *ngFor="let event of todayEventList; index as i">
     <div class="eventItem">
       <img id="new-item" src="./../../assets/calendar.svg" alt="Add Item" />
 
