@@ -13,6 +13,7 @@
 <app-edit-todo *ngIf="edit"></app-edit-todo>
 <ul>
   <li
+    class="show"
     *ngFor="let todo of todayTodoList; index as i"
     [ngClass]="{
       high: todo.to_do_priority === 'high',
@@ -99,7 +100,12 @@
       <p>Notes: {{ event.event_notes }}</p>
     </div>
     <div class="icons" *ngIf="event.show">
-      <img class="icon" src="./../../assets/edit.svg" alt="edit item" />
+      <img
+        (click)="editEvent(i)"
+        class="icon"
+        src="./../../assets/edit.svg"
+        alt="edit item"
+      />
       <img
         class="icon"
         src="./../../assets/trash.svg"

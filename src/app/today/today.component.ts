@@ -70,12 +70,6 @@ export class TodayComponent implements OnInit {
         .subscribe(response => (this.todayEventList = response));
     });
   }
-  // moveCompleted(i: number): any[] {
-  //   this.completedTodo.splice(i);
-  //   this.todayTodoList.splice(i, 1);
-  //   console.log(this.completedTodo);
-  //   return this.todayTodoList;
-  // }
   deleteTodo(i: number) {
     this.todayTodoList[i].completed = true;
     this.todoService.deleteTodo(

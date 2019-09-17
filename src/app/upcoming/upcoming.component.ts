@@ -16,6 +16,7 @@ export class UpcomingComponent implements OnInit {
   eventToEdit: any;
   eventEdit: boolean;
   event_subscription: any;
+  edit: boolean;
   constructor(
     private todoService: TodoService,
     private eventService: EventService,
@@ -24,7 +25,7 @@ export class UpcomingComponent implements OnInit {
 
   ngOnInit() {
     this.eventService
-      .getEvent(this.todoService.getDate(), false)
+      .getEvent(this.todoService.getTomorrowDate(), true)
       .subscribe(response => {
         response.forEach(event => {
           event.call = false;
@@ -36,7 +37,7 @@ export class UpcomingComponent implements OnInit {
     this.event_subscription = this.eventService.eventChange.subscribe(() => {
       console.log("Worked");
       this.eventService
-        .getEvent(this.todoService.getDate(), false)
+        .getEvent(this.todoService.getTomorrowDate, true)
         .subscribe(response => (this.upcomingEventList = response));
     });
   }
@@ -47,18 +48,25 @@ export class UpcomingComponent implements OnInit {
       true
     );
   }
+  editEvent(i: number): void {
+    this.eventEdit = !this.eventEdit;
+    this.eventToEdit = this.upcomingEventList[i];
+    this.eventService.editEvent(this.eventToEdit);
+  }
   callApi(i): void {
     this.upcomingEventList[i].call = !this.upcomingEventList[i].call;
     this.getTraffic(this.upcomingEventList[i]);
   }
   showInfo(i) {
     this.upcomingEventList[i].show = !this.upcomingEventList[i].show;
-    console.log("bye");
   }
   getTraffic(event): void {
     this.weatherService.getTrafficData(event).subscribe(response => {
       this.trafficData = response.rows[0].elements[0].duration.text;
       console.log(this.trafficData);
     });
+  }
+  showEventInfo(i): void {
+    this.upcomingEventList[i].show = !this.upcomingEventList[i].show;
   }
 }

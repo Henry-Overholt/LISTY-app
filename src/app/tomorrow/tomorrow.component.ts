@@ -19,9 +19,6 @@ export class TomorrowComponent implements OnInit {
   show: boolean;
   completedTodo: any[];
   completed: boolean;
-  tomorrowWeatherData: any;
-  tomorrowReturnDescription: any;
-  tomorrowTemp: any;
   call: boolean;
   todo_subscription: any;
   todoToEdit: any;
@@ -55,19 +52,19 @@ export class TomorrowComponent implements OnInit {
           event.show = false;
           event.weather = false;
         });
-        this.tomorrowTodoList = response;
+        this.tomorrowEventList = response;
       });
-    this.tomorrowWeather("48226");
+
     this.todo_subscription = this.todoService.todoChange.subscribe(() => {
       console.log("Worked");
       this.todoService
-        .getTodo(this.todoService.getDate(), false)
+        .getTodo(this.todoService.getTomorrowDate(), false)
         .subscribe(response => (this.tomorrowTodoList = response));
     });
     this.event_subscription = this.eventService.eventChange.subscribe(() => {
       console.log("Worked");
       this.eventService
-        .getEvent(this.todoService.getDate(), false)
+        .getEvent(this.todoService.getTomorrowDate(), false)
         .subscribe(response => (this.tomorrowEventList = response));
     });
   }
@@ -108,22 +105,12 @@ export class TomorrowComponent implements OnInit {
   showInfo(i) {
     this.tomorrowEventList[i].show = !this.tomorrowEventList[i].show;
   }
-  tomorrowWeather(zip: string): void {
-    this.weatherService.getWeatherData(zip).subscribe(response => {
-      this.tomorrowWeatherData = response.weather[0].icon;
-      this.tomorrowReturnDescription = response.weather[0].description;
-      this.tomorrowTemp = this.convertKtoF(response.main.temp);
-    });
-  }
   getWeather(zip: string): void {
     // console.log(eventForm.value.date, eventForm.value.time);
     this.weatherService.getWeatherData(zip).subscribe(response => {
       this.weatherData = response.weather[0].icon;
       this.returnDescription = response.weather[0].description;
       this.currentTemp = this.convertKtoF(response.main.temp);
-      console.log(this.returnDescription);
-      console.log(this.currentTemp);
-      console.log(this.weatherData);
     });
   }
   convertKtoF(Kalvin: number): number {
@@ -132,7 +119,6 @@ export class TomorrowComponent implements OnInit {
   getTraffic(event): void {
     this.weatherService.getTrafficData(event).subscribe(response => {
       this.trafficData = response.rows[0].elements[0].duration.text;
-      console.log(this.trafficData);
     });
   }
   markCompleted(i): void {
