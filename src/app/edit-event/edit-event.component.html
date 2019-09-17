@@ -1,0 +1,81 @@
+<form
+  id="eventForm"
+  #eventForm="ngForm"
+  *ngIf="showForm"
+  (ngSubmit)="
+    postEvent(eventForm); getWeather(eventForm); getTraffic(eventForm)
+  "
+>
+  <div class="eventForm">
+    <label for="eventName">Event:</label>
+    <input type="text" name="event_name" ngModel />
+    <label for="date">Date:</label>
+    <input type="date" name="event_date" ngModel />
+    <label for="time">Starts:</label>
+    <input type="time" name="event_start_time" ngModel />
+    <label for="time">Ends:</label>
+    <input type="time" name="event_end_time" ngModel />
+    <p>Where are you leaving from?</p>
+    <label for="startAdd">Starting Address: </label>
+    <input
+      type="text"
+      name="starting_address"
+      placeholder="Starting Address"
+      ngModel
+    />
+    <div>
+      <label for="startCity">City: </label>
+      <input
+        type="text"
+        name="starting_city"
+        placeholder="Starting City"
+        ngModel
+      />
+      <label for="startState">State: </label>
+      <input
+        type="text"
+        name="starting_state"
+        placeholder="Starting State"
+        ngModel
+      />
+    </div>
+    <label for="startZip">Zipcode: </label>
+    <input
+      type="number"
+      name="starting_zip"
+      placeholder="Starting Zipcode"
+      ngModel
+    />
+
+    <p>Where is your event?</p>
+    <label for="eventAdd">Event Address: </label>
+    <input
+      type="text"
+      name="event_address"
+      placeholder="Event Address"
+      ngModel
+    />
+    <div>
+      <label for="endCity">Event City: </label>
+
+      <input type="text" name="event_city" placeholder="Event City" ngModel />
+      <label for="endState">Event State: </label>
+      <input type="text" name="event_state" placeholder="Event State" ngModel />
+    </div>
+    <label for="eventZip">Event Zipcode: </label>
+    <input type="number" name="event_zip" placeholder="Event Zipcode" ngModel />
+    <label for="notes">Additional Event Notes:</label>
+    <textarea name="event_notes" id="" cols="50" rows="5" ngModel></textarea>
+  </div>
+  <!-- <button>ADD EVENT</button> -->
+  <div>
+    <button>
+      <img
+        class="green-check"
+        id="new-item"
+        src="./../../assets/correct-symbol.svg"
+        alt="Add Item"
+      />
+    </button>
+  </div>
+</form>

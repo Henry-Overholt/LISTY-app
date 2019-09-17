@@ -13,10 +13,13 @@ import { TomorrowComponent } from "./tomorrow/tomorrow.component";
 import { UpcomingComponent } from "./upcoming/upcoming.component";
 import { HomeComponent } from "./home/home.component";
 import { LandingPageComponent } from "./landing-page/landing-page.component";
+import { EditTodoComponent } from './edit-todo/edit-todo.component';
+import { EditEventComponent } from './edit-event/edit-event.component';
 
 const appRoutes: Routes = [
   { path: "home", component: HomeComponent },
   { path: "new", component: NewEntryComponent },
+
   {
     path: "landingpage",
     component: LandingPageComponent,
@@ -39,7 +42,9 @@ const appRoutes: Routes = [
     TomorrowComponent,
     UpcomingComponent,
     HomeComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    EditTodoComponent,
+    EditEventComponent
   ],
   imports: [
     BrowserModule,
