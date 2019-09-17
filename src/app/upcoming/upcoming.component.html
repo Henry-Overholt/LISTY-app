@@ -32,7 +32,7 @@
 </ul> -->
 
 <ul>
-  <li *ngFor="let event of upcomingEventList; index as i">
+  <li  class="eventList" *ngFor="let event of upcomingEventList; index as i">
     <div class="listItem">
       <img id="new-item" src="./../../assets/calendar.svg" alt="Add Item" />
       <div>
@@ -40,15 +40,14 @@
         <p>{{ event.event_date }}</p>
         <p>Time: {{ event.event_start_time }} - {{ event.event_end_time }}</p>
       </div>
-      <div>
+    </div>
+    <div>
         <button class="infoButton" (click)="showEventInfo(i)">
           More Info
         </button>
         <button (click)="callApi(i)">
           Get Traffic
         </button>
-      </div>
-    </div>
     <p *ngIf="event.call">Drive time is: {{ trafficData }}</p>
     <div class="moreInfo" *ngIf="event.show">
       <p>
