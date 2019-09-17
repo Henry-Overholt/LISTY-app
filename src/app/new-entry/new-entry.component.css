@@ -1,5 +1,3 @@
-
-
 .form-container {
   display: flex;
   flex-direction: column;
@@ -62,13 +60,13 @@ green-check {
     ),
     #fef7e5;
 }
-.todoForm {
+/* .todoForm {
   margin-top: 0px;
   padding-top: 0px;
   display: flex;
   flex-direction: column;
   margin: 10px;
-}
+} */
 .priority {
   display: flex;
   justify-content: center;
@@ -84,12 +82,15 @@ textarea {
 label {
   margin-top: 10px;
 }
-.eventForm {
+.eventForm,
+.todoForm {
   display: flex;
   flex-direction: column;
   align-content: center;
   justify-content: center;
-  width: 75%;
+  width: 90%;
+  /* padding-left: 5%; */
+  /* padding-left: 10px; */
 }
 
 /* .event-inner {
@@ -118,4 +119,46 @@ label {
 #new-item {
   height: 30px;
   margin: 10px 10px;
+}
+
+/* Desktop Styling ************************************************************************ */
+@media only screen and (min-width: 992px) {
+  .sidebar {
+    display: flex;
+    min-width: 100%;
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* align-content: center; */
+    /* padding: 0 5px; */
+  }
+
+  .form-container {
+    /* display: flex;
+    flex: 1; */
+    /* width: 95%; */
+    max-width: 100%;
+    /* margin-left: 5px; */
+  }
+
+  /* #wrapper {
+    flex: 1;
+    display: flex;
+  } */
+
+  #form-header {
+    padding-left: 5px;
+  }
+
+  .eventForm,
+  .todoForm {
+    display: flex;
+    max-width: 90%;
+    padding-left: 5px;
+    margin: 0;
+    /* align-content: center; */
+    /* justify-content: center; */
+    /* width: 90%; */
+    /* padding-left: 5%; */
+    /* padding-left: 10px; */
+  }
 }

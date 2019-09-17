@@ -12,6 +12,7 @@
 </div>
 <ul>
   <li
+    class="show"
     *ngFor="let todo of todayTodoList; index as i"
     [ngClass]="{
       high: todo.to_do_priority === 'high',
