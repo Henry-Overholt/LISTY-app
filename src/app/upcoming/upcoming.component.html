@@ -1,11 +1,32 @@
-<h2>Upcoming</h2>
+<div class="upcomingHeader">
+  <h2>Upcoming Events</h2>
+  <div></div>
+</div>
+
 <ul>
   <li *ngFor="let todo of upcomingTodoList; index as i">
-    <img id="new-item" src="./../../assets/reminder.svg" alt="" />
-    <div>
-      <p>{{ todo.to_do_item }}</p>
-      <p>{{ todo.to_do_date }}</p>
-      <button (click)="deleteTodo(todo.id)">Complete</button>
+    <div class="listItem">
+      <div class="checkbox" (click)="deleteTodo(i)">
+        <img
+          *ngIf="todo.completed"
+          class="complete"
+          src="./../../assets//correct-symbol.svg"
+          alt=""
+        />
+      </div>
+      <div>
+        <p>
+          {{ todo.to_do_item }}
+          <span *ngIf="todo.to_do_priority === 'low'">!</span>
+          <span *ngIf="todo.to_do_priority === 'medium'">!!</span>
+          <span *ngIf="todo.to_do_priority === 'high'">!!!</span>
+        </p>
+      </div>
+      <button class="infoButton" (click)="showExtra(i)">More Info:</button>
+    </div>
+    <div class="moreInfo" *ngIf="todo.show">
+      <p>Date: {{ date }}</p>
+      <p>Notes: {{ todo.to_do_notes }}</p>
     </div>
   </li>
 </ul>
@@ -16,22 +37,30 @@
     <div>
       <p>{{ event.event_name }}</p>
       <p>{{ event.event_date }}</p>
-      <p>{{ event.event_zip }}</p>
-      <button (click)="getWeather(event.event_zip)">
+      <p>Time: {{ event.event_start_time }} - {{ event.event_end_time }}</p>
+      <button class="infoButton" (click)="showEventInfo(i)">
+        More Info
+      </button>
+      <button (click)="callApi(i)">
         Get Weather and Traffic
       </button>
-      <i (mouseover)="showInfo()" (mouseout)="showInfo()">
-        <img
-          src="http://openweathermap.org/img/wn/{{ weatherData }}@2x.png"
-          alt=""
-      /></i>
-      <div *ngIf="show">
-        <p>{{ currentTemp }}°F</p>
-        <p>{{ returnDescription }}</p>
+      <p *ngIf="event.call">Drive time is: {{ trafficData }}</p>
+      <div class="moreInfo" *ngIf="event.show">
+        <p>
+          Address: {{ event.event_address }} {{ event.event_city }}
+          {{ event.event_state }}
+        </p>
+        <p>Notes: {{ event.event_notes }}</p>
       </div>
-
-      <!-- <p>{{ currentTemp }}</p>
-      <p>{{ returnDescription }}</p> -->
+      <div class="icons" *ngIf="event.show">
+        <img class="icon" src="./../../assets/edit.svg" alt="edit item" />
+        <img
+          class="icon"
+          src="./../../assets/trash.svg"
+          alt="delete item"
+          (click)="deleteEvent(i)"
+        />
+      </div>
     </div>
   </li>
 </ul>

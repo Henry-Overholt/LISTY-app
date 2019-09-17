@@ -62,6 +62,8 @@ green-check {
 select {
   margin-left: 10px;
   margin-top: 10px;
+  background: white;
+  border: 1px solid white;
 }
 textarea {
   resize: none;

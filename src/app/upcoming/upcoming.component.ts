@@ -2,7 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { TodoService } from "./../services/todo.service";
 import { EventService } from "./../services/event.service";
 import { WeatherService } from "./../services/weather.service";
-import { NgForm } from "@angular/forms";
 
 @Component({
   selector: "app-upcoming",
@@ -10,12 +9,13 @@ import { NgForm } from "@angular/forms";
   styleUrls: ["./upcoming.component.css"]
 })
 export class UpcomingComponent implements OnInit {
-  upcomingTodoList: any[];
   upcomingEventList: any[];
-  returnDescription: any;
-  weatherData: any;
-  currentTemp: any;
-  show: boolean = false;
+  trafficData: any;
+  show: boolean;
+  call: boolean;
+  eventToEdit: any;
+  eventEdit: boolean;
+  event_subscription: any;
   constructor(
     private todoService: TodoService,
     private eventService: EventService,
@@ -23,35 +23,42 @@ export class UpcomingComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.todoService
-      .getTodo(this.todoService.getTomorrowDate(), true)
-      .subscribe(response => (this.upcomingTodoList = response)),
+    this.eventService
+      .getEvent(this.todoService.getTomorrowDate(), true)
+      .subscribe(response => {
+        response.forEach(event => {
+          event.call = false;
+          event.weather = false;
+          event.show = false;
+        });
+        this.upcomingEventList = response;
+      });
+    this.event_subscription = this.eventService.eventChange.subscribe(() => {
+      console.log("Worked");
       this.eventService
-        .getEvent(this.todoService.getTomorrowDate(), true)
+        .getEvent(this.todoService.getTomorrowDate, true)
         .subscribe(response => (this.upcomingEventList = response));
-  }
-  deleteTodo(id: number) {
-    this.todoService
-      .deleteTodo(id, this.todoService.getTomorrowDate(), true)
-      .subscribe(response => (this.upcomingTodoList = response));
-  }
-
-  getWeather(zip: string): void {
-    // console.log(eventForm.value.date, eventForm.value.time);
-    this.weatherService.getWeatherData(zip).subscribe(response => {
-      this.weatherData = response.weather[0].icon;
-      this.returnDescription = response.weather[0].description;
-      this.currentTemp = this.convertKtoF(response.main.temp);
-      console.log(this.returnDescription);
-      console.log(this.currentTemp);
-      console.log(this.weatherData);
     });
   }
-  showInfo() {
-    this.show = !this.show;
+  deleteEvent(i: number): void {
+    this.eventService.deleteEvent(
+      this.upcomingEventList[i].id,
+      this.todoService.getDate(),
+      true
+    );
+  }
+  callApi(i): void {
+    this.upcomingEventList[i].call = !this.upcomingEventList[i].call;
+    this.getTraffic(this.upcomingEventList[i]);
+  }
+  showInfo(i) {
+    this.upcomingEventList[i].show = !this.upcomingEventList[i].show;
     console.log("bye");
   }
-  convertKtoF(Kalvin: number): number {
-    return (Kalvin - 273.15) * (9 / 5) + 32;
+  getTraffic(event): void {
+    this.weatherService.getTrafficData(event).subscribe(response => {
+      this.trafficData = response.rows[0].elements[0].duration.text;
+      console.log(this.trafficData);
+    });
   }
 }

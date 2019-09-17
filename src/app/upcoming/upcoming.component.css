@@ -1,6 +1,16 @@
+h2{
+  font-family: "Manjari", sans-serif;
+}
+
+.upcomingHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 20px 10px 10px;
+}
+
 ul {
   list-style: none;
-
   margin-right: 50px;
 }
 li {
@@ -11,7 +21,7 @@ li {
   margin-top: 15px;
   padding: 10px;
   border-radius: 20px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 255, 0.37);
 }
 li:hover {
   transform: scale(1.03);
@@ -21,4 +31,35 @@ img {
   height: 35px;
   width: 35px;
   padding-right: 10px;
+}
+.icon {
+  position: relative;
+  height: 15px;
+  width: 15px;
+  padding: 9px;
+}
+.upcomingHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 20px 10px 10px;
+}
+.scheduleFinder {
+  width: 25%;
+  height: 30px;
+  /* padding: 5px 0px 5px 5px; */
+  box-shadow: 2px 2px 2px 2px rgba(255, 166, 0, 0.473);
+  background: white;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 166, 0, 0.473);
+  font-size: 12px;
+  font-family: "Lemon", cursive;
+}
+.upcoming {
+  display: none;
+}
+@media only screen and (min-width: 992px) {
+  .upcoming {
+    display: inline;
+  }
 }
