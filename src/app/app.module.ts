@@ -17,9 +17,17 @@ import { LandingPageComponent } from "./landing-page/landing-page.component";
 const appRoutes: Routes = [
   { path: "home", component: HomeComponent },
   { path: "new", component: NewEntryComponent },
-  { path: "landingpage", component: LandingPageComponent },
+  {
+    path: "landingpage",
+    component: LandingPageComponent,
+    data: { hideNavigation: true }
+  },
   // { path: "home", component: AppComponent },
-  { path: "**", component: LandingPageComponent },
+  {
+    path: "**",
+    component: LandingPageComponent,
+    data: { hideNavigation: true }
+  },
   { path: "", redirectTo: "/landingpage", pathMatch: "full" }
 ];
 

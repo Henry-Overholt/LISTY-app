@@ -4,7 +4,7 @@
       <img src="assets/sailboat.svg" alt="listy logo" id="logo" />
       <p id="listy" routerLink="/landingpage">Listy</p>
     </div>
-    <div style="float:right">
+    <div style="float:right" *ngIf="!hideNavigation">
       <img
         routerLink="/new"
         routerLinkActive="active"
