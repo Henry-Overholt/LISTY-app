@@ -32,7 +32,7 @@
 </ul> -->
 
 <ul>
-  <li  class="eventList" *ngFor="let event of upcomingEventList; index as i">
+  <li class="eventList" *ngFor="let event of upcomingEventList; index as i">
     <div class="listItem">
       <img id="new-item" src="./../../assets/calendar.svg" alt="Add Item" />
       <div>
@@ -42,33 +42,34 @@
       </div>
     </div>
     <div>
-        <button class="infoButton" (click)="showEventInfo(i)">
-          More Info
-        </button>
-        <button (click)="callApi(i)">
-          Get Traffic
-        </button>
-    <p *ngIf="event.call">Drive time is: {{ trafficData }}</p>
-    <div class="moreInfo" *ngIf="event.show">
-      <p>
-        Address: {{ event.event_address }} {{ event.event_city }}
-        {{ event.event_state }}
-      </p>
-      <p>Notes: {{ event.event_notes }}</p>
-    </div>
-    <div class="icons" *ngIf="event.show">
-      <img
-        (click)="editEvent(i)"
-        class="icon"
-        src="./../../assets/edit.svg"
-        alt="edit item"
-      />
-      <img
-        class="icon"
-        src="./../../assets/trash.svg"
-        alt="delete item"
-        (click)="deleteEvent(i)"
-      />
+      <button class="infoButton" (click)="showEventInfo(i)">
+        More Info
+      </button>
+      <button (click)="callApi(i)">
+        Get Traffic
+      </button>
+      <p *ngIf="event.call">Drive time is: {{ trafficData }}</p>
+      <div class="moreInfo" *ngIf="event.show">
+        <p>
+          Address: {{ event.event_address }} {{ event.event_city }}
+          {{ event.event_state }}
+        </p>
+        <p>Notes: {{ event.event_notes }}</p>
+      </div>
+      <div class="icons" *ngIf="event.show">
+        <img
+          (click)="editEvent(i)"
+          class="icon"
+          src="./../../assets/edit.svg"
+          alt="edit item"
+        />
+        <img
+          class="icon"
+          src="./../../assets/trash.svg"
+          alt="delete item"
+          (click)="deleteEvent(i)"
+        />
+      </div>
     </div>
   </li>
 </ul>
