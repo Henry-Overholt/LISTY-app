@@ -53,7 +53,7 @@
 </ul>
 
 <ul>
-  <li *ngFor="let event of tomorrowEventList; index as i">
+  <li class="eventList" *ngFor="let event of tomorrowEventList; index as i">
     <div class="eventItem">
       <img id="new-item" src="./../../assets/calendar.svg" alt="Add Item" />
 
@@ -61,16 +61,15 @@
         <p>{{ event.event_name }}</p>
         <p>Time: {{ event.event_start_time }} to {{ event.event_end_time }}</p>
       </div>
-      <div class="infoButton">
-        <button (click)="callApi(i)">
-          Get Weather and Traffic
-        </button>
-        <button class="infoButton" (click)="showEventInfo(i)">
-          More Info:
-        </button>
-      </div>
     </div>
-
+    <div class="infoButton">
+      <button (click)="callApi(i)">
+        Get Weather and Traffic
+      </button>
+      <button class="infoButton" (click)="showEventInfo(i)">
+        More Info:
+      </button>
+    </div>
     <div *ngIf="event.call">
       <i (mouseover)="showWeather(i)" (mouseout)="showWeather(i)">
         <img
