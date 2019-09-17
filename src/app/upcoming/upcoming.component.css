@@ -1,4 +1,4 @@
-h2{
+h2 {
   font-family: "Manjari", sans-serif;
 }
 
@@ -16,12 +16,18 @@ ul {
 li {
   display: flex;
   align-items: center;
+  flex-direction: column;
   background: white;
   width: 100%;
   margin-top: 15px;
   padding: 10px;
   border-radius: 20px;
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 255, 0.37);
+}
+.listItem {
+  display: flex;
+  align-items: center;
+  width: 100%;
 }
 li:hover {
   transform: scale(1.03);
@@ -44,19 +50,18 @@ img {
   justify-content: space-between;
   margin: 10px 20px 10px 10px;
 }
-.scheduleFinder {
-  width: 25%;
-  height: 30px;
-  /* padding: 5px 0px 5px 5px; */
-  box-shadow: 2px 2px 2px 2px rgba(255, 166, 0, 0.473);
-  background: white;
-  border-radius: 10px;
-  border: 1px solid rgba(255, 166, 0, 0.473);
-  font-size: 12px;
-  font-family: "Lemon", cursive;
-}
 .upcoming {
   display: none;
+}
+.infoButton {
+  align-content: flex-end;
+}
+button {
+  background: #fe7590;
+  padding: 5px;
+  border-radius: 10px;
+  color: white;
+  font-family: "Lemon", cursive;
 }
 @media only screen and (min-width: 992px) {
   .upcoming {
