@@ -54,7 +54,9 @@ img {
   display: none;
 }
 .infoButton {
-  align-content: flex-end;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 button {
   background: #fe7590;

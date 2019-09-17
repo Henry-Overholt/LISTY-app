@@ -70,7 +70,9 @@ button {
   bottom: 5px;
 }
 .infoButton {
-  align-content: flex-end;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 .itemName {
   flex: 1;

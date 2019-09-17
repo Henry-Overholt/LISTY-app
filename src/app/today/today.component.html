@@ -71,14 +71,14 @@
           {{ event.event_end_time }}
         </p>
       </div>
-      <div class="infoButton">
-        <button (click)="callApi(i)">
-          Get Weather and Traffic
-        </button>
-        <button class="infoButton" (click)="showEventInfo(i)">
-          More Info:
-        </button>
-      </div>
+    </div>
+    <div class="infoButton">
+      <button (click)="callApi(i)">
+        Get Weather and Traffic
+      </button>
+      <button class="infoButton" (click)="showEventInfo(i)">
+        More Info:
+      </button>
     </div>
 
     <div *ngIf="event.call">
