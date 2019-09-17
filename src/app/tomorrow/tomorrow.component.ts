@@ -55,7 +55,7 @@ export class TomorrowComponent implements OnInit {
           event.show = false;
           event.weather = false;
         });
-        this.tomorrowTodoList = response;
+        this.tomorrowEventList = response;
       });
     this.tomorrowWeather("48226");
     this.todo_subscription = this.todoService.todoChange.subscribe(() => {
