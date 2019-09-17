@@ -61,13 +61,13 @@ export class TomorrowComponent implements OnInit {
     this.todo_subscription = this.todoService.todoChange.subscribe(() => {
       console.log("Worked");
       this.todoService
-        .getTodo(this.todoService.getDate(), false)
+        .getTodo(this.todoService.getTomorrowDate(), false)
         .subscribe(response => (this.tomorrowTodoList = response));
     });
     this.event_subscription = this.eventService.eventChange.subscribe(() => {
       console.log("Worked");
       this.eventService
-        .getEvent(this.todoService.getDate(), false)
+        .getEvent(this.todoService.getTomorrowDate(), false)
         .subscribe(response => (this.tomorrowEventList = response));
     });
   }
