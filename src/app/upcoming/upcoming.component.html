@@ -1,13 +1,9 @@
-
 <div class="upcomingHeader">
   <h2>Upcoming Events</h2>
-  <button class="scheduleFinder">
-    Find <span class="upcoming">Upcoming</span> Dates
-  </button>
+  <div></div>
 </div>
 
 <ul>
-
   <li *ngFor="let todo of upcomingTodoList; index as i">
     <div class="listItem">
       <div class="checkbox" (click)="deleteTodo(i)">
@@ -33,7 +29,7 @@
       <p>Notes: {{ todo.to_do_notes }}</p>
     </div>
   </li>
-</ul> -->
+</ul>
 
 <ul>
   <li *ngFor="let event of upcomingEventList; index as i">

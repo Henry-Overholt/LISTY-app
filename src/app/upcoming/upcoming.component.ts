@@ -24,7 +24,7 @@ export class UpcomingComponent implements OnInit {
 
   ngOnInit() {
     this.eventService
-      .getEvent(this.todoService.getDate(), false)
+      .getEvent(this.todoService.getTomorrowDate(), true)
       .subscribe(response => {
         response.forEach(event => {
           event.call = false;
@@ -36,7 +36,7 @@ export class UpcomingComponent implements OnInit {
     this.event_subscription = this.eventService.eventChange.subscribe(() => {
       console.log("Worked");
       this.eventService
-        .getEvent(this.todoService.getDate(), false)
+        .getEvent(this.todoService.getTomorrowDate, true)
         .subscribe(response => (this.upcomingEventList = response));
     });
   }
