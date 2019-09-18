@@ -85,7 +85,7 @@ export class TomorrowComponent implements OnInit {
   deleteEvent(i: number): void {
     this.eventService.deleteEvent(
       this.tomorrowEventList[i].id,
-      this.todoService.getDate(),
+      this.todoService.getTomorrowDate(),
       false
     );
   }

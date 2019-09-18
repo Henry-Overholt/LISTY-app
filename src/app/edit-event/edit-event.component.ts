@@ -10,12 +10,15 @@ import { NgForm } from "@angular/forms";
 export class EditEventComponent implements OnInit {
   eventList: any[];
   eventToEdit: any;
+  edit: boolean;
   constructor(private eventService: EventService) {}
 
   ngOnInit() {
     this.eventToEdit = this.eventService.eventToEdit;
+    this.edit = this.eventService.edit;
   }
   putEvent(form: NgForm, id: number): void {
+    this.edit = !this.edit;
     this.eventService.putEvent(form.value, id);
   }
 }
