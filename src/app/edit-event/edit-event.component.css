@@ -1,0 +1,27 @@
+form {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px 5px rgba(255, 0, 0, 0.411);
+}
+img {
+  height: 35px;
+  width: 35px;
+  align-self: flex-end;
+}
+.eventForm {
+  display: flex;
+  flex-direction: column;
+}
+button {
+  background: white;
+}
+.button {
+  align-self: flex-end;
+}
+input {
+  padding-top: 5px;
+}

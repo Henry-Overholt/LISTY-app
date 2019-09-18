@@ -1,25 +1,29 @@
 <form
   id="eventForm"
   #eventEditForm="ngForm"
+  *ngIf="edit"
   (ngSubmit)="putEvent(eventEditForm, eventToEdit.id)"
 >
+  <p>Edit Event</p>
   <div class="eventForm">
     <label for="eventName">Event:</label>
     <input type="text" name="event_name" [ngModel]="eventToEdit.event_name" />
     <label for="date">Date:</label>
     <input type="date" name="event_date" [ngModel]="eventToEdit.event_date" />
-    <label for="time">Starts:</label>
-    <input
-      type="time"
-      name="event_start_time"
-      [ngModel]="eventToEdit.event_start_time"
-    />
-    <label for="time">Ends:</label>
-    <input
-      type="time"
-      name="event_end_time"
-      [ngModel]="eventToEdit.event_end_time"
-    />
+    <div class="time">
+      <label for="time">Starts:</label>
+      <input
+        type="time"
+        name="event_start_time"
+        [ngModel]="eventToEdit.event_start_time"
+      />
+      <label for="time">Ends:</label>
+      <input
+        type="time"
+        name="event_end_time"
+        [ngModel]="eventToEdit.event_end_time"
+      />
+    </div>
     <p>Where are you leaving from?</p>
     <label for="startAdd">Starting Address: </label>
     <input
@@ -93,8 +97,7 @@
       [ngModel]="eventToEdit.event_notes"
     ></textarea>
   </div>
-  <!-- <button>ADD EVENT</button> -->
-  <div>
+  <div class="button">
     <button>
       <img
         class="green-check"

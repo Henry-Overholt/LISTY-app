@@ -9,6 +9,7 @@ import { Router } from "@angular/router";
 })
 export class EventService {
   eventToEdit: any;
+  edit: boolean = false;
   eventChange: Subject<any> = new Subject<any>();
   constructor(private http: HttpClient, private router: Router) {}
   getEvent(date, gt): Observable<any> {
@@ -41,6 +42,8 @@ export class EventService {
     this.router.navigate(["home"]);
   }
   editEvent(event): void {
+    this.edit = !this.edit;
+    console.log(this.edit);
     this.eventToEdit = event;
   }
 }

@@ -8,6 +8,7 @@ import { Router } from "@angular/router";
   providedIn: "root"
 })
 export class TodoService {
+  edit: boolean;
   todoToEdit: any;
   todoChange: Subject<any> = new Subject<any>();
   constructor(private http: HttpClient, private router: Router) {}
@@ -28,6 +29,7 @@ export class TodoService {
     this.http.put(`http://localhost:5252/to_do/${id}`, todo).subscribe(() => {
       this.todoChange.next("edit");
     });
+    this.edit != this.edit;
   }
   deleteTodo(id: number, date, gt): void {
     const params = new HttpParams().set("date", date).set("gt", gt);
@@ -38,6 +40,8 @@ export class TodoService {
       });
   }
   editTodo(todo): void {
+    this.edit = !this.edit;
+    console.log(this.edit);
     this.todoToEdit = todo;
   }
   getDate() {

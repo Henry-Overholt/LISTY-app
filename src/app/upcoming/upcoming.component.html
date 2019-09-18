@@ -3,33 +3,6 @@
   <div></div>
 </div>
 <app-edit-event *ngIf="eventEdit"></app-edit-event>
-<!-- <ul>
-  <li *ngFor="let todo of upcomingTodoList; index as i">
-    <div class="listItem">
-      <div class="checkbox" (click)="deleteTodo(i)">
-        <img
-          *ngIf="todo.completed"
-          class="complete"
-          src="./../../assets//correct-symbol.svg"
-          alt=""
-        />
-      </div>
-      <div>
-        <p>
-          {{ todo.to_do_item }}
-          <span *ngIf="todo.to_do_priority === 'low'">!</span>
-          <span *ngIf="todo.to_do_priority === 'medium'">!!</span>
-          <span *ngIf="todo.to_do_priority === 'high'">!!!</span>
-        </p>
-      </div>
-      <button class="infoButton" (click)="showExtra(i)">More Info:</button>
-    </div>
-    <div class="moreInfo" *ngIf="todo.show">
-      <p>Date: {{ date }}</p>
-      <p>Notes: {{ todo.to_do_notes }}</p>
-    </div>
-  </li>
-</ul> -->
 
 <ul>
   <li class="eventList" *ngFor="let event of upcomingEventList; index as i">

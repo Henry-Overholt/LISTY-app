@@ -1,6 +1,7 @@
 <form
   class="editForm"
   #editForm="ngForm"
+  *ngIf="edit"
   (ngSubmit)="putTodo(editForm, todoToEdit.id)"
 >
   <p>Edit ToDo</p>
