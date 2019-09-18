@@ -24,5 +24,6 @@ export class EditTodoComponent implements OnInit {
     this.todoService.putTodo(form.value, id);
     this.edit = !this.edit;
     form.reset();
+    this.todoService.navigateToHome();
   }
 }

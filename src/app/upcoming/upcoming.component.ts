@@ -37,7 +37,7 @@ export class UpcomingComponent implements OnInit {
     this.event_subscription = this.eventService.eventChange.subscribe(() => {
       console.log("Worked");
       this.eventService
-        .getEvent(this.todoService.getTomorrowDate, true)
+        .getEvent(this.todoService.getTomorrowDate(), true)
         .subscribe(response => (this.upcomingEventList = response));
     });
   }

@@ -20,5 +20,6 @@ export class EditEventComponent implements OnInit {
   putEvent(form: NgForm, id: number): void {
     this.edit = !this.edit;
     this.eventService.putEvent(form.value, id);
+    this.eventService.navigateToHome();
   }
 }
