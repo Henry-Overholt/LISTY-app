@@ -12,9 +12,15 @@
 .about {
   z-index: 0;
   font-family: "Manjari", sans-serif;
+  color: #01172f;
   display: flex;
   flex-direction: column;
-  margin-left: 15px;
+  margin: 30px 0 0 0;
+  padding: 0 10px;
+}
+
+.readme {
+  margin: 0 0 20px 0;
   font-size: 20px;
   padding-top: 70px;
 }
@@ -145,12 +151,20 @@ button {
 
   .sun {
     position: absolute;
-    top: 30%;
+    /* top: 30%; */
     right: 5%;
   }
 
   .about {
-    width: 50%;
-    font-size: 20px;
+    width: 45%;
+    padding: 0 20px;
+    /* font-size: 20px; */
+    /* margin-left: 0; */
+    /* margin-top: 5%; */
+    /* padding-left: 20px; */
+  }
+
+  .readme {
+    font-size: 25px;
   }
 }

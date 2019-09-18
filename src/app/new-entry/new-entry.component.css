@@ -1,10 +1,12 @@
+*{ 
+  color: #01172f;
+}
+
 .form-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  /* ----------------------------------------------- */
-  /* display: block; */
   background: linear-gradient(
       0deg,
       rgba(255, 255, 255, 0.5),
@@ -21,6 +23,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: #01172f;
 }
 
 .toggle {
@@ -31,12 +34,8 @@
 #new-item {
   height: 30px;
   margin: 10px 10px;
+  color:#01172f;
 }
-
-/* form {
-  display: flex;
-  flex-direction: column;
-} */
 
 button {
   display: block;
@@ -60,13 +59,7 @@ green-check {
     ),
     #fef7e5;
 }
-/* .todoForm {
-  margin-top: 0px;
-  padding-top: 0px;
-  display: flex;
-  flex-direction: column;
-  margin: 10px;
-} */
+
 .priority {
   display: flex;
   justify-content: center;
@@ -91,32 +84,14 @@ label {
   align-content: center;
   justify-content: center;
   width: 90%;
-  /* padding-left: 5%; */
-  /* padding-left: 10px; */
 }
 
-/* .event-inner {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-} */
-
-/* .event-details > p {
-  margin: 5px 5px;
-} */
-
-/* .leave-in {
-  font-size: 12px;
-} */
-
-/* ------------------------------------- */
-
-#formHeader {
+/* #formHeader {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-around;
-}
+} */
 
 #new-item {
   height: 30px;
@@ -124,43 +99,5 @@ label {
 }
 
 /* Desktop Styling ************************************************************************ */
-@media only screen and (min-width: 992px) {
-  .sidebar {
-    display: flex;
-    min-width: 100%;
-    /* justify-content: center; */
-    /* align-items: center; */
-    /* align-content: center; */
-    /* padding: 0 5px; */
-  }
-
-  .form-container {
-    /* display: flex;
-    flex: 1; */
-    /* width: 95%; */
-    max-width: 100%;
-    /* margin-left: 5px; */
-  }
-
-  /* #wrapper {
-    flex: 1;
-    display: flex;
-  } */
-
-  #form-header {
-    padding-left: 5px;
-  }
-
-  .eventForm,
-  .todoForm {
-    display: flex;
-    max-width: 90%;
-    padding-left: 5px;
-    margin: 0;
-    /* align-content: center; */
-    /* justify-content: center; */
-    /* width: 90%; */
-    /* padding-left: 5%; */
-    /* padding-left: 10px; */
-  }
+@media only screen and (min-width: 768px) {
 }

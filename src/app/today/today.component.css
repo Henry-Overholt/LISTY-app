@@ -1,5 +1,6 @@
 h2 {
   font-family: "Manjari", sans-serif;
+  color: #01172f;
 }
 
 ul {
@@ -130,7 +131,7 @@ button {
   justify-content: flex-start;
 }
 
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 768px) {
   .todayImg {
     height: 70px;
     width: 70px;
