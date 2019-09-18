@@ -29,7 +29,7 @@ export class TodoService {
     this.http.put(`http://localhost:5252/to_do/${id}`, todo).subscribe(() => {
       this.todoChange.next("edit");
     });
-    this.edit != this.edit;
+    this.edit = !this.edit;
   }
   deleteTodo(id: number, date, gt): void {
     const params = new HttpParams().set("date", date).set("gt", gt);

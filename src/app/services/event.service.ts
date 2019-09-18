@@ -28,6 +28,8 @@ export class EventService {
     this.http.put(`http://localhost:5252/event/${id}`, event).subscribe(() => {
       this.eventChange.next("edit");
     });
+    this.edit = !this.edit;
+    console.log("eventChange");
   }
 
   deleteEvent(id: number, date, gt): void {
