@@ -48,6 +48,8 @@
       <button (click)="callApi(i)">
         Get Traffic
       </button>
+    </div>
+    <div>
       <p *ngIf="event.call">Drive time is: {{ trafficData }}</p>
       <div class="moreInfo" *ngIf="event.show">
         <p>

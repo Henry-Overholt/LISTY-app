@@ -3,12 +3,14 @@
   #editForm="ngForm"
   (ngSubmit)="putTodo(editForm, todoToEdit.id)"
 >
+  <p>Edit ToDo</p>
   <div class="todoForm">
     <label for="todoName">Title:</label>
     <input type="text" name="to_do_item" [ngModel]="todoToEdit.to_do_item" />
-    <label for="date">Due date:</label>
-    <input type="date" name="to_do_date" [ngModel]="todoToEdit.to_do_date" />
     <div class="priority">
+      <label for="date">Due date:</label>
+      <input type="date" name="to_do_date" [ngModel]="todoToEdit.to_do_date" />
+
       <label for="priority">Priority Level:</label>
       <select
         name="to_do_priority"
