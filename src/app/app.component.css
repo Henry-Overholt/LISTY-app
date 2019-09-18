@@ -1,6 +1,11 @@
+*{
+  color: pink;
+}
+
 main {
   display: flex;
   flex-direction: column;
+  
 }
 
 .sidebar {
