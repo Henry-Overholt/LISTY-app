@@ -3,6 +3,7 @@ import { HttpClient, HttpParams } from "@angular/common/http";
 import { Observable, Subject } from "rxjs";
 import { tap } from "rxjs/operators";
 import { Router } from "@angular/router";
+import { environment } from "../../environments/environment";
 
 @Injectable({
   providedIn: "root"
@@ -14,11 +15,11 @@ export class TodoService {
   constructor(private http: HttpClient, private router: Router) {}
   getTodo(date, gt): Observable<any> {
     const params = new HttpParams().set("date", date).set("gt", gt);
-    return this.http.get(`http://localhost:5252/to_do`, { params });
+    return this.http.get(`${environment.listyApis}/to_do`, { params });
   }
   postToDo(toDo: object): Observable<any> {
     console.log(toDo);
-    return this.http.post("http://localhost:5252/to_do", toDo).pipe(
+    return this.http.post(`${environment.listyApis}/to_do`, toDo).pipe(
       tap(() => {
         this.todoChange.next("create");
       })
@@ -26,15 +27,17 @@ export class TodoService {
     // console.log(toDo);
   }
   putTodo(todo: object, id: number): void {
-    this.http.put(`http://localhost:5252/to_do/${id}`, todo).subscribe(() => {
-      this.todoChange.next("edit");
-    });
+    this.http
+      .put(`${environment.listyApis}/to_do/${id}`, todo)
+      .subscribe(() => {
+        this.todoChange.next("edit");
+      });
     this.edit = !this.edit;
   }
   deleteTodo(id: number, date, gt): void {
     const params = new HttpParams().set("date", date).set("gt", gt);
     this.http
-      .delete(`http://localhost:5252/to_do/${id}`, { params })
+      .delete(`${environment.listyApis}/to_do/${id}`, { params })
       .subscribe(() => {
         this.todoChange.next("delete");
       });

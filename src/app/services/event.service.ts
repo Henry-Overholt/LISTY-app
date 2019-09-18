@@ -3,6 +3,7 @@ import { HttpClient, HttpParams } from "@angular/common/http";
 import { Observable, Subject } from "rxjs";
 import { tap } from "rxjs/operators";
 import { Router } from "@angular/router";
+import { environment } from "../../environments/environment";
 
 @Injectable({
   providedIn: "root"
@@ -14,20 +15,22 @@ export class EventService {
   constructor(private http: HttpClient, private router: Router) {}
   getEvent(date, gt): Observable<any> {
     const params = new HttpParams().set("date", date).set("gt", gt);
-    return this.http.get(`http://localhost:5252/event`, { params });
+    return this.http.get(`${environment.listyApis}/event`, { params });
   }
   postEvent(eventItem: object): Observable<any> {
     console.log(eventItem);
-    return this.http.post("http://localhost:5252/event", eventItem).pipe(
+    return this.http.post(`${environment.listyApis}/event`, eventItem).pipe(
       tap(() => {
         this.eventChange.next("create");
       })
     );
   }
   putEvent(event: object, id: number): void {
-    this.http.put(`http://localhost:5252/event/${id}`, event).subscribe(() => {
-      this.eventChange.next("edit");
-    });
+    this.http
+      .put(`${environment.listyApis}/event/${id}`, event)
+      .subscribe(() => {
+        this.eventChange.next("edit");
+      });
     this.edit = !this.edit;
     console.log("eventChange");
   }
@@ -35,7 +38,7 @@ export class EventService {
   deleteEvent(id: number, date, gt): void {
     const params = new HttpParams().set("date", date).set("gt", gt);
     this.http
-      .delete(`http://localhost:5252/event/${id}`, { params })
+      .delete(`${environment.listyApis}/event/${id}`, { params })
       .subscribe(() => {
         this.eventChange.next("delete");
       });
