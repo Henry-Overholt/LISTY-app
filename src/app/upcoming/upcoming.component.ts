@@ -44,7 +44,7 @@ export class UpcomingComponent implements OnInit {
   deleteEvent(i: number): void {
     this.eventService.deleteEvent(
       this.upcomingEventList[i].id,
-      this.todoService.getTomorrowDate,
+      this.todoService.getTomorrowDate(),
       true
     );
   }
