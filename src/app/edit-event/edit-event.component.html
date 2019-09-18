@@ -1,27 +1,32 @@
 <form
   id="eventForm"
-  #eventForm="ngForm"
-  *ngIf="showForm"
-  (ngSubmit)="
-    postEvent(eventForm); getWeather(eventForm); getTraffic(eventForm)
-  "
+  #eventEditForm="ngForm"
+  (ngSubmit)="putEvent(eventEditForm, eventToEdit.id)"
 >
   <div class="eventForm">
     <label for="eventName">Event:</label>
-    <input type="text" name="event_name" ngModel />
+    <input type="text" name="event_name" [ngModel]="eventToEdit.event_name" />
     <label for="date">Date:</label>
-    <input type="date" name="event_date" ngModel />
+    <input type="date" name="event_date" [ngModel]="eventToEdit.event_date" />
     <label for="time">Starts:</label>
-    <input type="time" name="event_start_time" ngModel />
+    <input
+      type="time"
+      name="event_start_time"
+      [ngModel]="eventToEdit.event_start_time"
+    />
     <label for="time">Ends:</label>
-    <input type="time" name="event_end_time" ngModel />
+    <input
+      type="time"
+      name="event_end_time"
+      [ngModel]="eventToEdit.event_end_time"
+    />
     <p>Where are you leaving from?</p>
     <label for="startAdd">Starting Address: </label>
     <input
       type="text"
       name="starting_address"
       placeholder="Starting Address"
-      ngModel
+      [ngModel]="eventToEdit.starting_address"
     />
     <div>
       <label for="startCity">City: </label>
@@ -29,14 +34,14 @@
         type="text"
         name="starting_city"
         placeholder="Starting City"
-        ngModel
+        [ngModel]="eventToEdit.starting_city"
       />
       <label for="startState">State: </label>
       <input
         type="text"
         name="starting_state"
         placeholder="Starting State"
-        ngModel
+        [ngModel]="eventToEdit.starting_state"
       />
     </div>
     <label for="startZip">Zipcode: </label>
@@ -44,7 +49,7 @@
       type="number"
       name="starting_zip"
       placeholder="Starting Zipcode"
-      ngModel
+      [ngModel]="eventToEdit.starting_zip"
     />
 
     <p>Where is your event?</p>
@@ -53,19 +58,40 @@
       type="text"
       name="event_address"
       placeholder="Event Address"
-      ngModel
+      [ngModel]="eventToEdit.event_address"
     />
     <div>
       <label for="endCity">Event City: </label>
 
-      <input type="text" name="event_city" placeholder="Event City" ngModel />
+      <input
+        type="text"
+        name="event_city"
+        placeholder="Event City"
+        [ngModel]="eventToEdit.event_city"
+      />
       <label for="endState">Event State: </label>
-      <input type="text" name="event_state" placeholder="Event State" ngModel />
+      <input
+        type="text"
+        name="event_state"
+        placeholder="Event State"
+        [ngModel]="eventToEdit.event_state"
+      />
     </div>
     <label for="eventZip">Event Zipcode: </label>
-    <input type="number" name="event_zip" placeholder="Event Zipcode" ngModel />
+    <input
+      type="number"
+      name="event_zip"
+      placeholder="Event Zipcode"
+      [ngModel]="eventToEdit.event_zip"
+    />
     <label for="notes">Additional Event Notes:</label>
-    <textarea name="event_notes" id="" cols="50" rows="5" ngModel></textarea>
+    <textarea
+      name="event_notes"
+      id=""
+      cols="50"
+      rows="5"
+      [ngModel]="eventToEdit.event_notes"
+    ></textarea>
   </div>
   <!-- <button>ADD EVENT</button> -->
   <div>
